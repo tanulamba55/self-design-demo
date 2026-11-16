@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Leadership Foundations – SELF</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FBF8F5}
+a{color:#5146E6}a:hover{color:#3B31C4}
+.s5{font-family:'Manrope',system-ui,sans-serif;color:#1C1B29;background:#FBF8F5;width:100%;min-width:0}
+.s5 *{box-sizing:border-box}
+.s5 :focus-visible{outline:2px solid #5146E6;outline-offset:3px;border-radius:10px}
+.s5 button{font-family:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.wrap-l{max-width:1180px;margin:0 auto;padding:0 24px}
+.wrap-m{max-width:1120px;margin:0 auto;padding:0 24px}
+.out{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:18px 24px;margin-bottom:28px}
+.eyebrow{margin:0;font-size:13px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#5146E6}
+.h2{margin:8px 0 0;font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(30px,3.8vw,46px);letter-spacing:-1px;line-height:1.1}
+.h2c{margin:0 0 28px;font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,42px);letter-spacing:-1px;text-align:center}
+.lead{margin:10px 0 0;font-size:16px;line-height:1.6;color:#45434D}
+.muted{color:#5C5A63}
+.o{font-family:'Outfit',sans-serif}
+/* buttons */
+.btn-p,.btn-o{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:700;font-size:16px;border-radius:999px;text-decoration:none;cursor:pointer;min-height:48px;transition:background-color .2s,border-color .2s,color .2s,box-shadow .2s,transform .2s}
+.btn-p{background:#5146E6;color:#fff;border:1.5px solid #5146E6;padding:14px 22px}
+.btn-p:hover{background:#3B31C4;border-color:#3B31C4;color:#fff}
+.btn-o{background:#fff;color:#1C1B29;border:1.5px solid #D9D2E4;padding:13px 21px}
+.btn-o:hover{border-color:#5146E6;color:#1C1B29}
+.btn-sm{font-size:14px;padding:12px 16px;min-height:44px}
+.btn-p[disabled],.btn-o[disabled]{opacity:.45;cursor:not-allowed}
+.link-b{font:inherit;font-size:14px;font-weight:600;color:#5146E6;background:none;border:0;padding:10px 0;cursor:pointer;min-height:44px}
+.link-b:hover{color:#3B31C4}
+/* chips / tabs */
+.tab{font:inherit;font-weight:600;font-size:14px;padding:10px 16px;border-radius:999px;min-height:44px;cursor:pointer;background:#fff;color:#1C1B29;border:1.5px solid #D9D2E4;transition:background-color .2s,border-color .2s,color .2s}
+.tab:hover{border-color:#5146E6}
+.tab.on{background:#5146E6;color:#fff;border-color:#5146E6}
+.qr{font:inherit;font-size:15px;font-weight:600;border-radius:999px;padding:11px 16px;min-height:44px;cursor:pointer;color:#4338CA;background:#fff;border:1.5px solid #C9C2FF;transition:background-color .2s,border-color .2s}
+.qr:hover{border-color:#5146E6;background:#F6F4FF}
+.qr.sol{color:#fff;background:#5146E6;border-color:#5146E6}
+.qr.sol:hover{background:#3B31C4;border-color:#3B31C4}
+.pill{display:inline-flex;align-items:center;gap:8px;background:#ECE9FF;color:#4338CA;font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px}
+.pill i{width:7px;height:7px;border-radius:50%;background:#5146E6;display:inline-block}
+.tag{font-size:12px;font-weight:700;padding:5px 9px;border-radius:8px;background:#ECE9FF;color:#4338CA;display:inline-block}
+/* cards */
+.card{background:#FBF8F5;border:1px solid #ECE6EE;border-radius:20px;transition:border-color .2s,box-shadow .25s,transform .25s}
+.card.w{background:#fff}
+.card.r22{border-radius:22px}
+.lift:hover{border-color:#C9C2FF;box-shadow:0 18px 40px -24px rgba(81,70,230,.35);transform:translateY(-2px)}
+.sec-w{background:#fff;border-top:1px solid #ECE6EE;border-bottom:1px solid #ECE6EE}
+.grid-a{display:grid;gap:18px}
+/* header */
+.hdr{background:#fff;border-bottom:1px solid #ECE6EE}
+.hdr-in{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1C1B29;margin-right:auto}
+.logo:hover{color:#1C1B29}
+.logo span{font-family:'Outfit',sans-serif;font-weight:600;font-size:24px;letter-spacing:5px}
+.nav{display:flex;flex-wrap:wrap;gap:4px 22px;font-size:15px;font-weight:600}
+.nav a{color:#1C1B29;text-decoration:none;padding:12px 0;transition:color .2s}
+.nav a:hover,.nav a.cur{color:#5146E6}
+/* offer bar */
+.offer{background:#2B2566;color:#fff}
+.offer-in{max-width:1280px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 12px;font-size:14px}
+.code{font:inherit;font-weight:700;font-size:13px;letter-spacing:1px;background:#FFC2AC;color:#1C1B29;border:0;border-radius:999px;padding:6px 12px;min-height:32px;cursor:pointer}
+.code:hover{background:#FFD3C3}
+/* footer */
+.ftr{background:#1C1B29;color:#D9D6CE}
+.ftr-in{max-width:1280px;margin:0 auto;padding:32px 24px;display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center}
+.ftr a{color:#D9D6CE;text-decoration:none;font-size:14px;padding:8px 0}
+.ftr a:hover{color:#fff}
+/* hero */
+.hero-bg{background:radial-gradient(700px 420px at 85% 0%,#E4DEFF 0%,rgba(228,222,255,0) 72%),radial-gradient(620px 380px at 10% 40%,#FDE0D3 0%,rgba(253,224,211,0) 72%)}
+/* course card band */
+.band{position:relative;isolation:isolate;overflow:hidden;height:168px;padding:12px 14px;display:flex;flex-direction:column;justify-content:space-between;color:#1C1B29}
+.band svg.art{position:absolute;right:-18px;bottom:-26px;width:170px;height:170px;opacity:.55;z-index:-1}
+/* FAQ */
+.faq{background:#fff;border:1px solid #ECE6EE;border-radius:20px;transition:border-color .2s,box-shadow .3s}
+.faq:hover{border-color:#C9C2FF}
+.faq.open{border-color:#5146E6}
+.faqb{width:100%;display:flex;align-items:center;gap:14px;cursor:pointer;background:none;border:0;font:inherit;text-align:left;padding:18px 20px;font-size:17px;font-weight:700;color:#1C1B29;min-height:44px}
+.chev{flex:none;width:34px;height:34px;border-radius:50%;background:#F3EEF3;color:#1C1B29;display:grid;place-items:center;transition:transform .3s,background-color .2s,color .2s}
+.open .chev{transform:rotate(180deg);background:#5146E6;color:#fff}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.open .faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden}
+.faq-a p{margin:0;padding:0 20px 20px;font-size:16px;line-height:1.6;color:#45434D}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 18px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start;flex:0 0 min(340px,86%)}
+.arrow{width:46px;height:46px;border-radius:50%;border:1.5px solid #D9D2E4;background:#fff;display:grid;place-items:center;cursor:pointer;color:#1C1B29;transition:border-color .2s}
+.arrow:hover{border-color:#5146E6}
+.bar{height:8px;border-radius:999px;background:#ECE9FF;overflow:hidden}
+.bar>i{display:block;height:100%;background:#5146E6;border-radius:999px;transition:width .6s}
+.inp{width:100%;min-width:0;font:inherit;font-size:15px;border:1.5px solid #ECE6EE;border-radius:14px;padding:13px 16px;background:#FBF8F5;color:#1C1B29;outline:none;transition:border-color .2s,box-shadow .2s}
+.inp:focus{border-color:#5146E6;box-shadow:0 0 0 4px rgba(81,70,230,.12)}
+@media (prefers-reduced-motion:reduce){.s5 *{transition:none !important;animation:none !important}}
+@media (max-width:640px){.hdr-in,.wrap,.wrap-l,.wrap-m,.offer-in,.ftr-in{padding-left:18px;padding-right:18px}.band{height:150px}}
+
+.vid{position:relative;aspect-ratio:16/9;background:#2B2566;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:hidden;text-align:center;padding:20px}
+.vid .glow{position:absolute;inset:0;background:radial-gradient(520px 300px at 85% 0%,rgba(228,222,255,.22),rgba(228,222,255,0) 70%),radial-gradient(420px 260px at 10% 100%,rgba(253,224,211,.16),rgba(253,224,211,0) 70%)}
+.wv{display:flex;align-items:center;gap:5px;height:56px;position:relative}
+.wv i{display:block;width:6px;border-radius:4px;background:#C9C2FF;height:18px}
+.wv.on i{animation:wave 1s ease-in-out infinite}
+.wv i:nth-child(1){height:26px}.wv i:nth-child(2){height:48px;animation-delay:.12s}.wv i:nth-child(3){height:34px;animation-delay:.24s}.wv i:nth-child(4){height:54px;animation-delay:.36s}.wv i:nth-child(5){height:22px;animation-delay:.48s}
+@keyframes wave{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+.vc{cursor:pointer;border:0;background:transparent;color:#fff;display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:44px;border-radius:50%;font:inherit;font-weight:700;font-size:14px;transition:background-color .2s}
+.vc:hover{background:rgba(255,255,255,.16)}
+.ctab{cursor:pointer;font:inherit;border:0;background:transparent;padding:14px 18px;font-size:15px;font-weight:600;color:#5C5A63;border-bottom:2px solid transparent;margin-bottom:-1px;min-height:44px;transition:color .2s,border-color .2s}
+.ctab:hover{color:#5146E6}
+.ctab.ctab-on{color:#1C1B29;border-bottom-color:#5146E6}
+.lrow{cursor:pointer;width:100%;text-align:left;font:inherit;border:0;display:flex;align-items:center;gap:12px;padding:12px 16px;min-height:52px;transition:background-color .2s}
+.lrow:hover{background:#F6F4FF !important}
+.mc{cursor:pointer;font:inherit;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;min-height:44px;border-radius:999px;border:1.5px solid #D9D2E4;background:#fff;color:#1C1B29;transition:all .2s}
+.mc:hover{border-color:#5146E6}
+.mc.mc-on{background:#5146E6;border-color:#5146E6;color:#fff}
+.chip{cursor:pointer;font:inherit;font-weight:600;font-size:14px;padding:10px 16px;border-radius:999px;min-height:44px;background:#fff;color:#1C1B29;border:1.5px solid #D9D2E4;transition:all .2s}
+.chip:hover{border-color:#5146E6}
+.chip.chip-on{background:#5146E6;color:#fff;border-color:#5146E6}
+textarea.nt{width:100%;min-height:160px;resize:vertical;font:inherit;font-size:15px;line-height:1.6;padding:16px 18px;border-radius:16px;border:1.5px solid #ECE6EE;background:#FBF8F5;color:#1C1B29}
+textarea.nt:focus{border-color:#5146E6;box-shadow:0 0 0 4px rgba(81,70,230,.12);outline:none}
+.lbl{display:block;margin:0 0 6px;font-size:13px;font-weight:700;color:#5C5A63}
+.cgrid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr);gap:24px;align-items:start}
+.side{position:sticky;top:16px;display:flex;flex-direction:column;gap:18px}
+@media (max-width:980px){.cgrid{grid-template-columns:minmax(0,1fr)}.side{position:static}}
+
+.pvb{cursor:pointer;font:inherit;font-weight:700;font-size:15px;padding:10px 20px;border-radius:999px;min-height:44px;border:1.5px solid #D9D2E4;background:#fff;color:#1C1B29;transition:all .2s}
+.pvb:hover{border-color:#5146E6}
+.pvb.pvb-on{background:#1C1B29;border-color:#1C1B29;color:#fff}
+.pbtn{cursor:pointer;font:inherit;border:0;display:inline-flex;align-items:center;gap:14px;background:#fff;color:#1C1B29;border-radius:999px;padding:9px 30px 9px 9px;font-weight:700;font-size:clamp(17px,1.8vw,22px);transition:transform .25s,box-shadow .25s;box-shadow:0 18px 40px -22px rgba(0,0,0,.6)}
+.pbtn:hover{transform:translateY(-2px)}
+.pbtn .pc{width:48px;height:48px;border-radius:50%;background:#5146E6;color:#fff;display:grid;place-items:center;flex:none}
+.cc-row{cursor:pointer;width:100%;text-align:left;font:inherit;border:0;display:flex;align-items:flex-start;gap:14px;padding:13px 14px;border-radius:16px;transition:background-color .2s}
+.cc-row:hover{background:#F6F4FF !important}
+body{font-family:'Manrope',system-ui,sans-serif}
+h1,h2,h3,.heading,.o,.disp,.h3x{font-family:'Outfit',sans-serif}
+
+.vc{width:38px !important;height:38px !important;min-width:0 !important}
+.vc:hover{background:rgba(255,255,255,.14)}
+.g3b{cursor:pointer;font:inherit;display:inline-flex;align-items:center;background:#fff;color:#1F1D2B;border:1px solid #E4DEEA;padding:12px 22px;border-radius:999px;font-size:15px;font-weight:600;line-height:1.4;transition:border-color .3s,color .3s}
+.g3b:hover{border-color:#5146E6;color:#4338CA}
+.g3b[disabled]{opacity:.4;cursor:not-allowed}
+.d3b{cursor:pointer;font:inherit;display:inline-flex;align-items:center;background:#1F1D2B;color:#fff;border:0;padding:13px 24px;border-radius:999px;font-size:15px;font-weight:700;line-height:1.4;transition:background-color .3s}
+.d3b:hover{background:#34304A}
+.d3b[disabled]{opacity:.35}
+.v3tab{cursor:pointer;font:inherit;border:0;background:transparent;padding:14px 18px;font-size:15px;color:#4E4B5F;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .3s,border-color .3s}
+.v3tab:hover{color:#4338CA}
+.v3tab.v3tab-on{color:#1F1D2B;border-bottom-color:#5146E6}
+.v3h{margin:0 0 16px;font-size:20px;font-weight:400;letter-spacing:-.03em}
+.v3c{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid #EEE8EE;border-radius:16px;padding:16px 18px;font-size:15px;color:#2B2940;box-shadow:0 10px 24px -22px rgba(31,29,43,.5)}
+.v3p{display:inline-flex;align-items:center;font-size:14px;padding:8px 16px;border-radius:999px;background:#F1EEFF;color:#4338CA;line-height:1.2}
+.v3p.o{background:#fff;color:#1F1D2B;border:1px solid #E4DEEA}
+@media (max-width:640px){.v3g{grid-template-columns:minmax(0,1fr) !important}}
+
+.v4b{cursor:pointer;font:inherit;display:inline-flex;align-items:center;gap:8px;background:#fff;color:#1C1B29;border:1.5px solid #E4DEEA;padding:11px 24px;border-radius:999px;font-size:17px;font-weight:700;line-height:1.3;box-shadow:0 8px 20px -14px rgba(31,29,43,.35);transition:border-color .2s,color .2s,transform .2s}
+.v4b:hover{border-color:#5146E6;color:#4338CA}
+.v4b[disabled]{opacity:.4;cursor:not-allowed}
+.v4t{cursor:pointer;font:inherit;border:0;background:transparent;padding:16px 8px 14px;font-size:17px;font-weight:700;color:#6B6880;border-bottom:3px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
+.v4t:hover{color:#4338CA}
+.v4t.v4t-on{color:#1C1B29;border-bottom-color:#5146E6}
+.v4r{cursor:pointer;width:100%;text-align:left;font:inherit;border:0;background:transparent;display:flex;align-items:baseline;gap:28px;padding:12px 8px;border-radius:12px;transition:background-color .2s}
+.v4r:hover{background:#F6F4FF}
+.v4r.v4r-on{background:#F1EEFF}
+.v4k{display:inline-block;min-width:24px;text-align:center;font-size:13px;line-height:20px;border:1.5px solid #D9D2E4;border-radius:7px;background:#fff;padding:0 5px;margin:0 2px;vertical-align:1px}
+.seg{flex:1 1 0;height:5px;border-radius:5px;background:rgba(255,255,255,.2);overflow:hidden}
+.seg i{display:block;height:100%;background:#8C7DFF}
+.v4scrub{position:relative;display:flex;gap:5px;padding:9px 0;cursor:pointer;margin-bottom:4px}
+.v4scrub:focus-visible{outline:2px solid #A99CFF;outline-offset:2px}
+.vc.on{background:rgba(255,255,255,.18)}
+@media (max-width:760px){.v4g{grid-template-columns:minmax(0,1fr) !important}}
+</style>
+</helmet>
+
+<div class="s5">
+<div style="background:#F1EFF3;border-bottom:1px solid #ECE6EE"><div class="wrap-l" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding-top:14px;padding-bottom:14px"><span style="font-size:15px;font-weight:700;color:#45434D">Prototype view:</span><button type="button" class="{{c.clsFree}}" onClick="{{c.viewFree}}">Free preview</button><button type="button" class="{{c.clsEnr}}" onClick="{{c.viewEnr}}">Enrolled learner</button></div></div>
+<header class="hdr">
+<div class="hdr-in">
+<a href="V5-Home.dc.html#top" class="logo"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24"><path d="M12 1.5C12.9 7.6 16.4 11.1 22.5 12 16.4 12.9 12.9 16.4 12 22.5 11.1 16.4 7.6 12.9 1.5 12 7.6 11.1 11.1 7.6 12 1.5Z" fill="#5146E6" transform="rotate(-12 12 12)"></path></svg><span>SELF</span></a>
+<nav aria-label="Main" class="nav">
+<a href="V5-Discover.dc.html">Career Discovery</a><a href="V5-Courses.dc.html" class="cur">Courses</a><a href="V5-Learn.dc.html">My Learning</a><a href="V5-Login.dc.html">Log in</a>
+</nav>
+</div>
+</header>
+
+<!-- COURSE HEADER -->
+<section style="background:#FBF8F5">
+<div class="wrap-l" style="padding-top:clamp(22px,3vw,34px);padding-bottom:0;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 40px">
+<div style="min-width:0;flex:1 1 300px">
+<nav aria-label="Breadcrumb" style="font-size:14px;color:#5C5A63"><a href="V5-Courses.dc.html" style="color:#5C5A63">Courses</a> / <span>{{c.track}}</span></nav>
+<h1 class="o" style="margin:10px 0 6px;font-weight:400;font-size:clamp(30px,3.7vw,48px);line-height:1.08;letter-spacing:-1.5px">{{c.titleA}} <span style="color:#5146E6">{{c.titleB}}</span></h1>
+<p style="margin:0;font-size:15px;color:#5C5A63">{{c.metaLine}}</p>
+</div>
+<sc-if value="{{c.owned}}" hint-placeholder-val="{{ false }}">
+<div style="flex:0 1 380px;min-width:240px;width:100%;max-width:380px">
+<div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;margin-bottom:8px"><span>Course progress</span><span>{{c.progLabel}}</span></div>
+<div role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{c.pct}}" class="bar"><i style="width:{{c.pctW}}"></i></div>
+</div>
+</sc-if>
+<sc-if value="{{c.notOwned}}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:10px 14px"><span class="o" style="font-weight:500;font-size:32px;line-height:1;letter-spacing:-.5px">{{c.priceText}}</span><span style="font-size:15px;color:#5C5A63;text-decoration:line-through">{{c.mrpText}}</span><span style="font-size:13px;font-weight:700;letter-spacing:.6px;background:#1C1B29;color:#fff;border-radius:8px;padding:6px 10px">NEWYEAR26</span><button type="button" class="btn-p" onClick="{{c.buy}}">Unlock full course</button></div>
+</sc-if>
+</div>
+</section>
+
+<main class="wrap-l" style="padding-top:clamp(20px,2.4vw,28px);padding-bottom:64px">
+<div class="cgrid" style="grid-template-columns:minmax(0,2.1fr) minmax(300px,1fr);gap:clamp(24px,2.4vw,32px)">
+
+<!-- LEFT: PLAYER + TABS -->
+<div style="min-width:0;display:flex;flex-direction:column;gap:18px">
+<div id="v4player" style="{{c.pStyle}}">
+<div aria-hidden="true" style="position:absolute;right:-8%;bottom:-34%;width:46%;aspect-ratio:1/1;border-radius:50%;background:#2A2740"></div>
+<p style="position:absolute;left:30px;top:26px;z-index:2;margin:0;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A99CFF">{{c.curLabel}}</p>
+<sc-if value="{{c.canPlay}}" hint-placeholder-val="{{ true }}">
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 24px 90px;gap:22px">
+<p class="o" style="margin:0;font-size:clamp(26px,3.2vw,44px);font-weight:500;letter-spacing:-1px;max-width:680px;line-height:1.12">{{c.curTitle}}</p>
+<button type="button" class="pbtn" onClick="{{c.togglePlay}}"><span class="pc" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="{{c.playIcon}}"></path></svg></span>{{c.pbLabel}}</button>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:0;z-index:2;background:linear-gradient(180deg,rgba(23,21,31,0),#17151F 55%);padding:26px 26px 14px">
+<sc-if value="{{c.ccOn}}" hint-placeholder-val="{{ false }}"><p style="position:absolute;left:0;right:0;bottom:92px;margin:0;text-align:center;pointer-events:none"><span style="display:inline-block;max-width:80%;background:rgba(0,0,0,.72);color:#fff;font-size:15px;line-height:1.4;padding:6px 12px;border-radius:8px">{{c.ccText}}</span></p></sc-if>
+<div class="v4scrub" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{c.pct2}}" onClick="{{c.scrubClick}}" onKeyDown="{{c.scrubKey}}">
+<sc-for list="{{c.segs}}" as="g" hint-placeholder-count="4"><span class="seg" style="flex-grow:{{g.grow}}"><i style="width:{{g.fill}}"></i></span></sc-for>
+<span aria-hidden="true" style="position:absolute;top:50%;left:{{c.progW}};width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(140,125,255,.4);pointer-events:none"></span>
+</div>
+<div style="display:flex;align-items:center;gap:8px">
+<button type="button" class="vc" onClick="{{c.togglePlay}}" aria-label="{{c.playLabel}}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="{{c.playIcon}}"></path></svg></button>
+<button type="button" class="vc" onClick="{{c.rew}}" aria-label="Back 10 seconds"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 109-9 M3 4v5h5"></path></svg></button>
+<button type="button" class="vc" onClick="{{c.fwd}}" aria-label="Forward 10 seconds"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 11-9-9 M21 4v5h-5"></path></svg></button>
+<span style="font-size:14px;color:#fff;margin-left:8px;white-space:nowrap">{{c.timeLine}}</span>
+<span style="font-size:14px;color:rgba(255,255,255,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">· {{c.chapNow}}</span>
+<span style="flex:1"></span>
+<button type="button" class="vc" onClick="{{c.cycleSpeed}}" aria-label="Playback speed" style="width:auto !important;padding:0 10px;border-radius:999px;font-size:14px;font-weight:700">{{c.speedLabel}}</button>
+<button type="button" class="{{c.ccCls}}" onClick="{{c.toggleCC}}" aria-label="Captions" aria-pressed="{{c.ccOn}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="M10 10.5a2 2 0 100 3 M16 10.5a2 2 0 100 3"></path></svg></button>
+<button type="button" class="vc" onClick="{{c.toggleFS}}" aria-label="Full screen"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5 M20 9V4h-5 M4 15v5h5 M20 15v5h-5"></path></svg></button>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{c.locked}}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;gap:14px;background:#1C1B29">
+<div aria-hidden="true" style="position:absolute;right:-8%;bottom:-34%;width:46%;aspect-ratio:1/1;border-radius:50%;background:#2A2740"></div>
+<span aria-hidden="true" style="position:relative;width:70px;height:70px;border-radius:50%;background:#2F2C45;display:flex;align-items:center;justify-content:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11h10a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6a2 2 0 012-2z M8 11V8a4 4 0 018 0v3"></path></svg></span>
+<p class="o" style="position:relative;margin:0;font-size:clamp(24px,3vw,38px);font-weight:500;letter-spacing:-.8px;line-height:1.15;max-width:560px">{{c.curTitle}}</p>
+<p style="position:relative;margin:0;max-width:480px;font-size:16px;line-height:1.5;color:rgba(255,255,255,.85)">This lesson unlocks with the full course. Lesson 1 is free to watch.</p>
+<div style="position:relative;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:10px">
+<button type="button" class="btn-p" onClick="{{c.buy}}">Unlock for {{c.priceText}}</button>
+<button type="button" class="btn-o" onClick="{{c.goPreview}}" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.35)">Watch free lesson</button>
+</div>
+</div>
+</sc-if>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px">
+<div style="display:flex;gap:12px">
+<button type="button" class="v4b" onClick="{{c.prev}}" disabled="{{c.noPrev}}">← Previous</button>
+<button type="button" class="v4b" onClick="{{c.next}}" disabled="{{c.noNext}}">Next →</button>
+</div>
+<sc-if value="{{c.owned}}" hint-placeholder-val="{{ false }}"><button type="button" class="v4b" onClick="{{c.toggleDone}}" aria-pressed="{{c.curDone}}" style="{{c.doneSt}}">{{c.doneLabel}}</button></sc-if>
+</div>
+
+<div role="tablist" aria-label="Lesson sections" style="display:flex;flex-wrap:wrap;gap:6px 36px;margin-top:10px;border-bottom:1px solid #E4DEEA">
+<button type="button" role="tab" aria-selected="{{c.tabOv}}" class="{{c.clsOv}}" onClick="{{c.goOv}}">Overview</button>
+<button type="button" role="tab" aria-selected="{{c.tabNt}}" class="{{c.clsNt}}" onClick="{{c.goNt}}">{{c.notesTab}}</button>
+<button type="button" role="tab" aria-selected="{{c.tabRs}}" class="{{c.clsRs}}" onClick="{{c.goRs}}">Resources</button>
+<button type="button" role="tab" aria-selected="{{c.tabTr}}" class="{{c.clsTr}}" onClick="{{c.goTr}}">Transcript</button>
+</div>
+
+<sc-if value="{{c.tabOv}}" hint-placeholder-val="{{ true }}">
+<div class="v4g" style="display:grid;grid-template-columns:minmax(0,1.75fr) minmax(240px,1fr);gap:32px;padding-top:14px;align-items:start">
+<div>
+<h2 style="margin:0 0 14px;font-family:'Manrope',sans-serif;font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1.2">About this lesson</h2>
+<p style="margin:0;font-size:17px;line-height:1.6;color:#4E4B5F">A short, practical lesson. Watch it once, then try the idea out loud — practising for two minutes beats re-watching for ten.</p>
+<h3 style="margin:34px 0 8px;font-family:'Manrope',sans-serif;font-size:18px;font-weight:700;letter-spacing:-.01em">In this lesson</h3>
+<div style="display:flex;flex-direction:column">
+<sc-for list="{{c.chaps}}" as="h" hint-placeholder-count="4"><button type="button" class="{{h.cls}}" onClick="{{h.go}}"><span style="flex:none;width:44px;font-size:18px;font-weight:700;color:#4338CA">{{h.time}}</span><span style="font-size:18px;color:#3A384A">{{h.t}}</span></button></sc-for>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div class="card w" style="border-radius:24px;padding:18px 20px;display:flex;align-items:center;gap:16px"><span aria-hidden="true" style="flex:none;width:48px;height:48px;border-radius:50%;background:#ECE9FF;color:#4338CA;display:grid;place-items:center;font-weight:700;font-size:18px">AR</span><span><span style="display:block;font-size:17px;font-weight:700">Ananya Rao</span><span style="display:block;font-size:15px;color:#5C5A63">{{c.coachRole}}</span></span></div>
+<div class="card w" style="border-radius:24px;padding:22px 20px;font-size:16px;line-height:1.9;color:#45434D"><b style="color:#1C1B29">Tip:</b> press <span class="v4k">←</span> / <span class="v4k">→</span> on the progress bar to skip 5 seconds.</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{c.tabNt}}" hint-placeholder-val="{{ false }}">
+<div style="padding-top:20px">
+<label for="nt" style="display:block;margin:0 0 12px;font-size:17px;font-weight:700">Your notes for “{{c.curTitle}}”</label>
+<textarea id="nt" class="nt" placeholder="Jot down what you want to remember." value="{{c.noteVal}}" onChange="{{c.setNote}}"></textarea>
+<p style="margin:10px 0 0;font-size:13px;color:#5C5A63">Notes are kept in this browser only. {{c.noteSaved}}</p>
+</div>
+</sc-if>
+
+<sc-if value="{{c.tabRs}}" hint-placeholder-val="{{ false }}">
+<div style="padding-top:20px;display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{c.resources}}" as="r" hint-placeholder-count="3"><div class="card w" style="border-radius:20px;padding:16px 20px;display:flex;align-items:center;gap:16px"><span aria-hidden="true" style="flex:none;width:44px;height:44px;border-radius:12px;background:#ECE9FF;display:grid;place-items:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4338CA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z M14 3v5h5"></path></svg></span><span style="flex:1;min-width:0"><span style="display:block;font-size:16px;font-weight:700">{{r.t}}</span><span style="display:block;font-size:14px;color:#5C5A63">{{r.sub}}</span></span></div></sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{c.tabTr}}" hint-placeholder-val="{{ false }}">
+<div style="padding-top:20px;display:flex;flex-direction:column;gap:6px">
+<sc-for list="{{c.transcript}}" as="x" hint-placeholder-count="4"><button type="button" class="v4r" onClick="{{x.go}}" style="align-items:flex-start"><span style="flex:none;width:44px;font-size:16px;font-weight:700;color:#4338CA">{{x.time}}</span><span style="font-size:16px;line-height:1.6;color:#3A384A">{{x.text}}</span></button></sc-for>
+</div>
+</sc-if>
+</div>
+
+<!-- RIGHT: ENROL + COURSE CONTENT -->
+<aside class="side" aria-label="Course">
+
+<div class="card w r22" style="overflow:hidden;border-radius:28px;padding-bottom:10px">
+<div style="padding:20px 24px 10px;display:flex;justify-content:space-between;align-items:baseline;gap:10px"><p class="o" style="margin:0;font-size:22px;font-weight:500">Course content</p><span style="font-size:14px;font-weight:700;color:#5C5A63">{{c.doneTotal}}</span></div>
+<sc-for list="{{c.modules}}" as="m" hint-placeholder-count="3">
+<div style="padding:0 10px">
+<p style="margin:0;padding:14px 14px 6px;display:flex;justify-content:space-between;gap:10px;font-size:13px;font-weight: 700;letter-spacing:1.2px;text-transform:uppercase;color:#5C5A63"><span>{{m.name}}</span><span>{{m.count}}</span></p>
+<sc-for list="{{m.lessons}}" as="l" hint-placeholder-count="3">
+<button type="button" class="cc-row" onClick="{{l.pick}}" aria-current="{{l.current}}" style="background:{{l.bg}};color:{{l.fg}}">
+<span aria-hidden="true" style="flex:none;position:relative;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:1;box-sizing:border-box;font-size:13px;font-weight:700;background:{{l.iconBg}};color:{{l.iconFg}};border:{{l.iconBd}}"><svg width="34" height="34" viewBox="-15.2 -15.2 54.4 54.4" fill="{{l.fill}}" stroke="{{l.stroke}}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="display:{{l.svgShow}};position:absolute;left:0;top:0"><path d="{{l.icon}}"></path></svg>{{l.numTxt}}</span>
+<span style="flex:1;min-width:0"><span style="display:block;font-size:15px;font-weight:600;line-height:1.35">{{l.t}}</span><span style="display:block;font-size:13px;color:#5C5A63;margin-top:2px">{{l.sub}}</span><span style="display:{{l.progShow}};height:3px;border-radius:3px;background:#E4E0F5;margin-top:8px;overflow:hidden"><span style="display:block;height:100%;width:{{l.rowProg}};background:#5146E6"></span></span></span>
+</button>
+</sc-for>
+</div>
+</sc-for>
+</div>
+</aside>
+</div>
+
+
+<!-- CHECKOUT (Master checkout panel style) -->
+<sc-if value="{{k.open}}" hint-placeholder-val="{{ false }}">
+<div class="codlg" style="margin-top:24px;background:#FBF8F5;border:1.5px solid #5146E6;border-radius:20px;padding:24px;display:flex;flex-wrap:wrap;gap:24px 36px">
+<div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:8px">
+<p style="margin:0;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#5C5A63">Order summary</p>
+<p style="margin:0;display:flex;justify-content:space-between;gap:12px;font-size:15px"><span>{{c.title}}</span><span style="font-weight:600">{{c.mrpText}}</span></p>
+<p style="margin:0;display:flex;justify-content:space-between;gap:12px;font-size:15px;color:#C2543A"><span>NEWYEAR26 discount</span><span style="font-weight:600">−{{c.discText}}</span></p>
+<p class="o" style="margin:4px 0 0;padding-top:10px;border-top:1px solid #ECE6EE;display:flex;justify-content:space-between;font-size:22px;font-weight:500"><span>Total</span><span>{{c.priceText}}</span></p>
+<p style="margin:8px 0 0;font-size:13px;line-height:1.5;color:#5C5A63">Demo checkout — no real payment is taken. Try the test card 4000 0000 0000 0002 to see a declined payment.</p>
+</div>
+<div style="flex:1 1 340px;min-width:0">
+
+<sc-if value="{{k.isDetails}}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="margin:0;font-weight:700;font-size:16px">1. Your details</p>
+<div><label for="k-name" class="lbl">Full name</label><input id="k-name" class="inp" type="text" value="{{k.name}}" onChange="{{k.setName}}" onKeyDown="{{k.kDetails}}" autocomplete="name"></div>
+<div><label for="k-email" class="lbl">Email</label><input id="k-email" class="inp" type="email" value="{{k.email}}" onChange="{{k.setEmail}}" onKeyDown="{{k.kDetails}}" autocomplete="email"></div>
+<div><label for="k-mob" class="lbl">Mobile number</label><input id="k-mob" class="inp" type="tel" inputmode="numeric" value="{{k.mob}}" onChange="{{k.setMob}}" onKeyDown="{{k.kDetails}}" autocomplete="tel"></div>
+<p role="alert" style="margin:0;min-height:18px;font-size:13px;color:#C2543A">{{k.err}}</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+<button type="button" class="btn-p" onClick="{{k.toPay}}">Continue to payment</button>
+<button type="button" class="btn-o" onClick="{{k.fillDemo}}">Fill demo details</button>
+<button type="button" class="link-b" onClick="{{k.close}}">Cancel</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{k.isPay}}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="margin:0;font-weight:700;font-size:16px">2. Payment</p>
+<div role="group" aria-label="Payment method" style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{k.methods}}" as="m" hint-placeholder-count="3"><button type="button" class="{{m.cls}}" onClick="{{m.pick}}"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{m.icon}}"></path></svg>{{m.t}}</button></sc-for>
+</div>
+<sc-if value="{{k.mCard}}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div><label for="k-cname" class="lbl">Name on card</label><input id="k-cname" class="inp" type="text" value="{{k.cname}}" onChange="{{k.setCname}}"></div>
+<div><label for="k-cnum" class="lbl">Card number</label><input id="k-cnum" class="inp" type="text" inputmode="numeric" placeholder="1234 5678 9012 3456" value="{{k.cnum}}" onChange="{{k.setCnum}}"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div><label for="k-cexp" class="lbl">Expiry</label><input id="k-cexp" class="inp" type="text" inputmode="numeric" placeholder="MM/YY" value="{{k.cexp}}" onChange="{{k.setCexp}}"></div><div><label for="k-ccvc" class="lbl">CVC</label><input id="k-ccvc" class="inp" type="text" inputmode="numeric" placeholder="123" value="{{k.ccvc}}" onChange="{{k.setCcvc}}"></div></div>
+</div>
+</sc-if>
+<sc-if value="{{k.mUpi}}" hint-placeholder-val="{{ false }}">
+<div><label for="k-upi" class="lbl">UPI ID</label><input id="k-upi" class="inp" type="text" placeholder="name@bank" value="{{k.upi}}" onChange="{{k.setUpi}}"></div>
+</sc-if>
+<sc-if value="{{k.mBank}}" hint-placeholder-val="{{ false }}">
+<div role="group" aria-label="Choose a bank" style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{k.banks}}" as="b" hint-placeholder-count="4"><button type="button" class="{{b.cls}}" onClick="{{b.pick}}">{{b.t}}</button></sc-for></div>
+</sc-if>
+<p role="alert" style="margin:0;min-height:18px;font-size:13px;color:#C2543A">{{k.err}}</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+<button type="button" class="btn-p" onClick="{{k.pay}}">{{k.payLabel}}</button>
+<button type="button" class="btn-o" onClick="{{k.fillDemoPay}}">Fill demo payment</button>
+<button type="button" class="link-b" onClick="{{k.back}}">← Back</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{k.isBusy}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:16px 0"><p class="o" style="margin:0;font-size:22px;font-weight:500">Processing your demo payment…</p><p style="margin:0;font-size:14px;color:#5C5A63">This takes a moment. Nothing is charged.</p></div>
+</sc-if>
+
+<sc-if value="{{k.isFail}}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:12px;background:#FFF1EA;border-radius:16px;padding:18px">
+<p class="o" style="margin:0;font-size:22px;font-weight:500;color:#A3412A">Payment didn’t go through</p>
+<p style="margin:0;font-size:14px;color:#45434D">{{k.failMsg}}</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><button type="button" class="btn-p" onClick="{{k.retry}}">Try again</button><button type="button" class="link-b" onClick="{{k.close}}">Cancel</button></div>
+</div>
+</sc-if>
+
+<sc-if value="{{k.isDone}}" hint-placeholder-val="{{ false }}">
+<div style="background:#EAF7F0;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px">
+<p class="o" style="margin:0;display:flex;align-items:center;gap:10px;font-size:24px;font-weight:500"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#167A4C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6"></path></svg>{{k.doneTitle}}</p>
+<p style="margin:0;font-size:15px;color:#2D4A3C">Paid with {{k.methodLabel}} · Order {{k.orderId}}. All topics are now unlocked.</p>
+<button type="button" class="btn-p btn-sm" onClick="{{k.finish}}" style="align-self:flex-start">▶ Start learning</button>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+</main>
+
+<footer class="ftr">
+<div class="ftr-in">
+<span class="o" style="font-weight:600;font-size:22px;letter-spacing:5px;color:#fff;margin-right:auto">SELF</span>
+<a href="V5-Home.dc.html#faq">FAQ</a>
+<a href="V5-Home.dc.html#privacy">Privacy</a>
+<a href="V5-Home.dc.html#terms">Terms</a>
+<a href="V5-Home.dc.html#refunds">Refunds</a>
+<span style="font-size:13px;color:#A8A59D">© 2026 SELF · India</span>
+</div>
+</footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2700}}'>
+const COURSE = {"slug": "ld1", "title": "Leadership Foundations", "titleA": "Leadership", "titleB": "Foundations", "desc": "Run a team project, make decisions and give feedback.", "icon": "M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z", "track": "Leadership", "skills": ["Ownership", "Decision-making", "Feedback", "Delegation"], "who": ["College students", "Club members", "Early-career professionals"], "learn": ["Understand what leadership looks like day to day", "Plan and run a team project", "Make decisions with incomplete information", "Give and receive feedback well"], "mods": [["Module 1 · Leading yourself", ["What leadership really is", "Your values and style", "Taking ownership", "Managing your time"]], ["Module 2 · Leading a team", ["Setting a clear goal", "Dividing work fairly", "Running short meetings", "Making decisions", "Resolving conflict"]], ["Module 3 · Growing others", ["Giving feedback", "Receiving feedback", "Motivating the team", "Reviewing a project"]]], "mrp": 1500, "hrs": 3.5};
+const fmt5 = (n) => '₹' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sel: this.initSel(), owned: this.loadOwned(), tab: 'ov', playing: false, prog: 0, done: this.readJ('self_v5_done', {})[COURSE.slug] || [], notes: this.readJ('self_v5_notes', {})[COURSE.slug] || {}, speed: 0, saved: '', cc: false, fs: false,
+      coOpen: false, step: 'details', method: 'card', err: '',
+      name: '', email: '', mob: '', cname: '', cnum: '', cexp: '', ccvc: '', upi: '', bank: '',
+      orderId: '', failMsg: '', paidWith: ''
+    };
+    this.onKey = (e) => { if (e.key === 'Escape' && this.state.fs) this.setState({ fs: false }); };
+    this.onFs = () => { if (!document.fullscreenElement && this.state.fs) this.setState({ fs: false }); };
+    try { document.addEventListener('keydown', this.onKey); document.addEventListener('fullscreenchange', this.onFs); } catch (e) {}
+    this.mag = (e) => {
+      const el = e.currentTarget; const r = el.getBoundingClientRect();
+      el.style.transform = 'translate3d(' + ((e.clientX - r.left - r.width / 2) * 0.2).toFixed(1) + 'px,' + ((e.clientY - r.top - r.height / 2) * 0.3).toFixed(1) + 'px,0)';
+    };
+    this.magOut = (e) => { e.currentTarget.style.transform = ''; };
+    this.glow = (e) => { const el = e.currentTarget; const r = el.getBoundingClientRect(); el.style.setProperty('--gx', (e.clientX - r.left) + 'px'); el.style.setProperty('--gy', (e.clientY - r.top) + 'px'); };
+  }
+  readJ(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } }
+  writeKey(k, fn) { try { const o = this.readJ(k, {}); fn(o); localStorage.setItem(k, JSON.stringify(o)); } catch (e) {} }
+  initSel() { const own = this.loadOwned(); const l = this.readJ('self_v5_last', {})[COURSE.slug]; return own && typeof l === 'number' ? l : 0; }
+  loadOwned() { try { return JSON.parse(localStorage.getItem('self_v5_owned') || '[]').indexOf(COURSE.slug) > -1; } catch (e) { return false; } }
+  saveOwned(on) { try { const a = JSON.parse(localStorage.getItem('self_v5_owned') || '[]').filter((x) => x !== COURSE.slug); if (on) a.push(COURSE.slug); localStorage.setItem('self_v5_owned', JSON.stringify(a)); } catch (e) {} }
+  componentWillUnmount() { clearInterval(this.iv); clearTimeout(this.tp); try { document.removeEventListener('keydown', this.onKey); document.removeEventListener('fullscreenchange', this.onFs); } catch (e) {} }
+
+  modules() {
+    return COURSE.mods;
+  }
+
+  renderVals() {
+    const s = this.state;
+    const MODS = this.modules();
+    const flat = [];
+    MODS.forEach((m) => m[1].forEach((t) => flat.push({ t, mod: m[0] })));
+    const ICON = {
+      play: 'M7 5l12 7-12 7z', pause: 'M7 5h4v14H7z M13 5h4v14h-4z',
+      lock: 'M7 11h10a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6a2 2 0 012-2z M8 11V8a4 4 0 018 0v3',
+      card: 'M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z M3 10h18',
+      upi: 'M8 3h8a1 1 0 011 1v16a1 1 0 01-1 1H8a1 1 0 01-1-1V4a1 1 0 011-1z M11 18h2',
+      bank: 'M3 10l9-6 9 6 M5 10v8 M9 10v8 M15 10v8 M19 10v8 M3 20h18',
+      file: 'M7 3h7l5 5v13H7z M14 3v5h5'
+    };
+    const durOf = (i) => 300 + ((i * 97 + flat[i].t.length * 13) % 420);
+    const fmtT = (sec) => Math.floor(sec / 60) + ':' + String(Math.floor(sec % 60)).padStart(2, '0');
+    const fmtH = (h) => Math.floor(h) + ' h' + (h % 1 ? ' ' + Math.round((h % 1) * 60) + ' m' : '');
+    const isLocked = (i) => !s.owned && i > 0;
+    const cur = flat[s.sel];
+    const locked = isLocked(s.sel);
+    const stopPlay = () => { clearInterval(this.iv); };
+    const NT = flat.length;
+    const select = (i) => { stopPlay(); this.setState({ sel: i, playing: false, prog: 0, saved: '' }); if (this.state.owned || i === 0) this.writeKey('self_v5_last', (o) => { o[COURSE.slug] = i; }); if (this.state.owned) this.writeKey('self_v5_cur', (o) => {}); try { if (this.state.owned) localStorage.setItem('self_v5_cur', JSON.stringify(COURSE.slug)); } catch (e) {} };
+    const setDone = (i, on) => { const cur0 = this.state.done.filter((x) => x !== i); if (on) cur0.push(i); this.setState({ done: cur0 }); this.writeKey('self_v5_done', (o) => { o[COURSE.slug] = cur0; }); };
+    const SPEEDS = [1, 1.5, 2];
+
+    let idx = -1;
+    const modules = MODS.map((m) => {
+      let dn = 0; const lessons = m[1].map((l) => {
+        idx += 1; const i = idx; const lk = isLocked(i); const on = s.sel === i; const dd = s.done.indexOf(i) > -1; if (dd) dn += 1;
+        const state = dd ? 'done' : (on && !lk) ? 'play' : 'num';
+        return {
+          dur: fmtT(durOf(i)), rowProg: on ? s.prog + '%' : '0%', progShow: on && !lk ? 'block' : 'none',
+          t: l, sr: lk ? 'Locked' : dd ? 'Completed' : 'Unlocked',
+          sub: lk ? fmtT(durOf(i)) + ' · Locked' : dd ? fmtT(durOf(i)) : on ? fmtT(durOf(i)) + ' · Now playing' : (i === 0 && !s.owned ? fmtT(durOf(i)) + ' · Free preview' : fmtT(durOf(i))),
+          cls: 'lrow' + (on ? ' lrow-on' : ''), current: on ? 'true' : 'false', pick: () => select(i),
+          bg: on ? '#F1EEFF' : 'transparent', fg: '#1C1B29',
+          iconBg: state === 'done' ? '#5B4BEA' : state === 'play' ? '#1F1D2B' : state === 'lock' ? '#F4EEF0' : '#fff',
+          iconFg: state === 'done' || state === 'play' ? '#fff' : state === 'lock' ? '#9A95AD' : '#4E4B5F',
+          iconBd: state === 'num' ? '1px solid #D9D3E6' : '0',
+          icon: state === 'done' ? 'M6.5 12.2l3.5 3.5L17.5 8.2' : state === 'lock' ? ICON.lock : ICON.play,
+          fill: state === 'play' ? 'currentColor' : 'none', stroke: state === 'play' ? 'none' : 'currentColor',
+          svgShow: state === 'num' ? 'none' : 'block', numTxt: state === 'num' ? String(i + 1) : ''
+        };
+      });
+      return { title: m[0], name: m[0].replace(/^Module \d+ · /, ''), lessons, count: dn + '/' + m[1].length };
+    });
+
+    const togglePlay = () => {
+      if (this.state.playing) { stopPlay(); this.setState({ playing: false }); return; }
+      stopPlay();
+      if (this.state.prog >= 100) this.setState({ prog: 0 });
+      this.setState({ playing: true });
+      this.iv = setInterval(() => {
+        const p = Math.min(100, this.state.prog + 2.5 * SPEEDS[this.state.speed]);
+        if (p >= 100) { clearInterval(this.iv); this.setState({ prog: 100, playing: false }); if (this.state.owned || this.state.sel === 0) { if (this.state.done.indexOf(this.state.sel) < 0 && this.state.owned) setDone(this.state.sel, true); } } else this.setState({ prog: p });
+      }, 250);
+    };
+    const FR = [0, 0.2, 0.5, 0.8];
+        const chapsT = ['Why ' + cur.t.toLowerCase().slice(0, 40) + ' matters', 'The core idea', 'Worked example', 'Result and recap'];
+        chapsT[0] = chapsT[0].length > 34 ? 'Why this matters' : chapsT[0];
+        const TRS = ['Welcome. In this lesson we look at {t}, and why it is worth your time before you move on.', 'Here is the core idea in plain words. Keep it simple: one point, one reason, one example.', 'Let us walk through a worked example together, step by step, so you can see it in action.', 'To recap: pause the video, say it out loud once, and then try it with your own example.'];
+        const chapIdx = FR.reduce((a, f, q) => (s.prog / 100 >= f ? q : a), 0);
+        const cs = durOf(s.sel) * s.prog / 100;
+        const seekSec = (d) => this.setState({ prog: Math.max(0, Math.min(100, this.state.prog + d / durOf(this.state.sel) * 100)) });
+        const PBASE = 'position:relative;border-radius:28px;overflow:hidden;aspect-ratio:16/9;min-height:300px;background:#1F1D2B;color:#fff;box-shadow:0 40px 80px -50px rgba(31,29,43,.9)';
+        const toggleFS = () => {
+          const on = !this.state.fs; this.setState({ fs: on });
+          try { const el = document.getElementById('v4player'); if (on && el && el.requestFullscreen) { const p = el.requestFullscreen(); if (p && p.catch) p.catch(() => {}); } else if (!on && document.fullscreenElement && document.exitFullscreen) { document.exitFullscreen(); } } catch (e) {}
+        };
+    const seek = (d) => this.setState({ prog: Math.max(0, Math.min(100, this.state.prog + d)) });
+
+    // checkout
+    const firstName = (s.name || '').trim().split(' ')[0];
+    const digits = (v, n) => (v || '').replace(/\D/g, '').slice(0, n);
+    const luhn = (num) => { let sum = 0, alt = false; for (let i = num.length - 1; i >= 0; i--) { let d = +num[i]; if (alt) { d *= 2; if (d > 9) d -= 9; } sum += d; alt = !alt; } return sum % 10 === 0; };
+    const err = (m) => this.setState({ err: m });
+    const validDetails = () => {
+      const st = this.state;
+      if ((st.name || '').trim().length < 2) return 'Enter your full name.';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((st.email || '').trim())) return 'Enter a valid email address.';
+      if (!/^[6-9]\d{9}$/.test(st.mob || '')) return 'Enter a valid 10-digit mobile number.';
+      return '';
+    };
+    const toPay = () => { const m = validDetails(); if (m) { err(m); return; } this.setState({ step: 'pay', err: '' }); };
+    const validPay = () => {
+      const st = this.state;
+      if (st.method === 'card') {
+        const n = digits(st.cnum, 16);
+        if ((st.cname || '').trim().length < 2) return 'Enter the name on the card.';
+        if (n.length !== 16 || !luhn(n)) return 'Enter a valid 16-digit card number.';
+        const mm = /^(\d{2})\/(\d{2})$/.exec(st.cexp || '');
+        const now = new Date(); const ym = now.getFullYear() % 100 * 12 + now.getMonth();
+        if (!mm || +mm[1] < 1 || +mm[1] > 12 || (+mm[2] * 12 + +mm[1] - 1) < ym) return 'Enter a valid expiry date (MM/YY).';
+        if (!/^\d{3}$/.test(st.ccvc || '')) return 'Enter the 3-digit CVC.';
+      } else if (st.method === 'upi') {
+        if (!/^[\w.\-]{2,}@[a-zA-Z]{2,}$/.test((st.upi || '').trim())) return 'Enter a valid UPI ID, like name@bank.';
+      } else if (!st.bank) return 'Choose a bank to continue.';
+      return '';
+    };
+    const METHOD_LABEL = { card: 'Card', upi: 'UPI', bank: 'Net banking' };
+    const pay = () => {
+      const m = validPay(); if (m) { err(m); return; }
+      const st = this.state;
+      this.setState({ step: 'busy', err: '' });
+      clearTimeout(this.tp);
+      this.tp = setTimeout(() => {
+        const cur2 = this.state;
+        if (cur2.method === 'card' && digits(cur2.cnum, 16) === '4000000000000002') {
+          this.setState({ step: 'fail', failMsg: 'The demo bank declined this test card.' });
+        } else {
+          this.saveOwned(true); this.setState({ step: 'done', owned: true, orderId: 'DEMO-' + String(Date.now()).slice(-6), paidWith: METHOD_LABEL[cur2.method] });
+        }
+      }, 1800);
+    };
+    const enter = (fn) => (e) => { if (e.key === 'Enter') { e.preventDefault(); fn(); } };
+    const set = (key, fmt) => (e) => this.setState({ [key]: fmt ? fmt(e.target.value) : e.target.value, err: '' });
+    const methods = ['card', 'upi', 'bank'].map((id) => ({
+      t: METHOD_LABEL[id], icon: ICON[id], on: s.method === id, cls: 'mc' + (s.method === id ? ' mc-on' : ''),
+      pick: () => this.setState({ method: id, err: '' })
+    }));
+    const BANKS = ['Demo Bank A', 'Demo Bank B', 'Demo Bank C', 'Demo Bank D'];
+    const banks = BANKS.map((b) => ({ t: b, on: s.bank === b, cls: 'chip' + (s.bank === b ? ' chip-on' : ''), pick: () => this.setState({ bank: b, err: '' }) }));
+    const k = {
+      open: s.coOpen,
+      close: () => { clearTimeout(this.tp); this.setState({ coOpen: false, step: s.step === 'done' ? 'done' : 'details', err: '' }); },
+      isDetails: s.step === 'details', isPay: s.step === 'pay', isBusy: s.step === 'busy', isFail: s.step === 'fail', isDone: s.step === 'done',
+      name: s.name, email: s.email, mob: s.mob, err: s.err,
+      setName: set('name'), setEmail: set('email'), setMob: set('mob', (v) => digits(v, 10)),
+      kDetails: enter(toPay), toPay,
+      fillDemo: () => this.setState({ name: 'Demo Learner', email: 'demo@example.com', mob: '9876543210', err: '' }),
+      methods, mCard: s.method === 'card', mUpi: s.method === 'upi', mBank: s.method === 'bank', banks,
+      cname: s.cname, cnum: s.cnum, cexp: s.cexp, ccvc: s.ccvc, upi: s.upi,
+      setCname: set('cname'),
+      setCnum: set('cnum', (v) => digits(v, 16).replace(/(\d{4})(?=\d)/g, '$1 ')),
+      setCexp: set('cexp', (v) => { const d = digits(v, 4); return d.length > 2 ? d.slice(0, 2) + '/' + d.slice(2) : d; }),
+      setCcvc: set('ccvc', (v) => digits(v, 3)), setUpi: set('upi'),
+      fillDemoPay: () => this.setState({ cname: s.name || 'Demo Learner', cnum: '4242 4242 4242 4242', cexp: '12/29', ccvc: '123', upi: 'demo@upi', bank: 'Demo Bank A', err: '' }),
+      payLabel: 'Pay ' + fmt5(Math.round(COURSE.mrp * 0.75)),
+      pay, back: () => this.setState({ step: 'details', err: '' }),
+      retry: () => this.setState({ step: 'pay', err: '' }), failMsg: s.failMsg,
+      doneTitle: firstName ? 'You’re in, ' + firstName + '.' : 'You’re in.',
+      orderId: s.orderId, methodLabel: s.paidWith,
+      finish: () => { this.setState({ coOpen: false, sel: 1, playing: false, prog: 0 }); setTimeout(() => { const m = document.querySelector('main'); if (m && m.scrollIntoView) m.scrollIntoView({ block: 'start', behavior: 'smooth' }); }, 120); }
+    };
+
+    const nTopics = flat.length;
+    const c = {
+      title: COURSE.title, titleA: COURSE.titleA, titleB: COURSE.titleB, desc: COURSE.desc, bg: COURSE.bg, blob: COURSE.blob, fg: COURSE.fg, icon: COURSE.icon, n: nTopics,
+      totalLabel: 'Level 1 · Self-paced · ' + nTopics + ' topics in ' + MODS.length + ' modules',
+      modules, learn: COURSE.learn.map((t) => ({ t })),
+      includes: [['M12 3l9 5-9 5-9-5 9-5z M3 13l9 5 9-5', nTopics + ' topics across ' + MODS.length + ' modules'], ['M7 5l12 7-12 7z', 'First topic free to preview'], ['M12 7v5l3 2 M12 3a9 9 0 100 18 9 9 0 000-18z', 'Self-paced'], ['M7 11h10a2 2 0 012 2v6a2 2 0 01-2 2H7a2 2 0 01-2-2v-6a2 2 0 012-2z M8 11V8a4 4 0 018 0v3', 'Remaining topics unlock after purchase']].map((x) => ({ icon: x[0], t: x[1] })),
+      owned: s.owned, notOwned: !s.owned, locked, canPlay: !locked,
+      curTitle: cur.t, curModule: cur.mod, curMin: 'Topic ' + (s.sel + 1) + ' of ' + nTopics, curSub: cur.mod + ' · Topic ' + (s.sel + 1) + ' of ' + nTopics + (s.sel === 0 && !s.owned ? ' · Free preview' : ''),
+      progW: s.prog + '%', playIcon: s.playing ? ICON.pause : ICON.play, playLabel: s.playing ? 'Pause lesson' : 'Play lesson',
+      togglePlay, buy: () => { if (this.state.owned) return; this.setState({ coOpen: true, step: 'details', err: '' }); setTimeout(() => { const d = document.querySelector('.codlg'); if (d && d.scrollIntoView) d.scrollIntoView({ block: 'start', behavior: 'smooth' }); }, 120); },
+      goPreview: () => select(0), next: () => select(Math.min(flat.length - 1, s.sel + 1)),
+      startLearning: () => select(1), resetDemo: () => { stopPlay(); this.saveOwned(false); this.writeKey('self_v5_done', (o) => { delete o[COURSE.slug]; }); this.writeKey('self_v5_last', (o) => { delete o[COURSE.slug]; }); this.setState({ owned: false, sel: 0, playing: false, prog: 0, step: 'details', orderId: '', done: [] }); },
+      track: COURSE.track, mrpText: fmt5(COURSE.mrp), priceText: fmt5(Math.round(COURSE.mrp * 0.75)), discText: fmt5(COURSE.mrp - Math.round(COURSE.mrp * 0.75)),
+      meta: [['M12 3l9 5-9 5-9-5 9-5z M3 13l9 5 9-5', nTopics + ' lessons · ' + COURSE.hrs + ' hrs'], ['M4 6h16 M4 12h16 M4 18h10', MODS.length + ' modules'], ['M7 5l12 7-12 7z', 'First topic free'], ['M12 7v5l3 2 M12 3a9 9 0 100 18 9 9 0 000-18z', 'Self-paced']].map((x) => ({ icon: x[0], t: x[1] })),
+      skills: COURSE.skills.map((t) => ({ t })), who: COURSE.who.map((t) => ({ t })), nRest: nTopics - 1, nMods: MODS.length,
+      how: ['Start with the first topic, free to preview', 'Topics are grouped into ' + MODS.length + ' modules and you move at your own pace', 'The remaining ' + (nTopics - 1) + ' topics unlock after purchase', 'Checkout is a simulated demo, so no real payment is taken'].map((t) => ({ t })),
+      tabOv: s.tab === 'ov', tabDt: s.tab === 'dt',
+      clsOv: 'v4t' + (s.tab === 'ov' ? ' v4t-on' : ''), clsDt: 'v4t' + (s.tab === 'dt' ? ' v4t-on' : ''),
+      goOv: () => this.setState({ tab: 'ov' }), goDt: () => this.setState({ tab: 'dt' }), goNt: () => this.setState({ tab: 'nt' }),
+      tabNt: s.tab === 'nt', clsNt: 'v4t' + (s.tab === 'nt' ? ' v4t-on' : ''),
+      notesTab: 'Notes' + (Object.keys(s.notes).filter((k) => (s.notes[k] || '').trim()).length ? ' (' + Object.keys(s.notes).filter((k) => (s.notes[k] || '').trim()).length + ')' : ''),
+      noteVal: s.notes[s.sel] || '', noteSaved: s.saved,
+      setNote: (e) => { const v = e.target.value; const nn = Object.assign({}, this.state.notes, { [this.state.sel]: v }); this.setState({ notes: nn, saved: 'Saved.' }); this.writeKey('self_v5_notes', (o) => { o[COURSE.slug] = nn; }); },
+      prev: () => select(Math.max(0, s.sel - 1)), noPrev: s.sel === 0, noNext: s.sel >= NT - 1,
+      toggleDone: () => { if (!locked) setDone(s.sel, s.done.indexOf(s.sel) < 0); },
+      curDone: s.done.indexOf(s.sel) > -1, doneSt: s.done.indexOf(s.sel) > -1 ? '' : 'background:#1C1B29;border-color:#1C1B29;color:#fff;box-shadow:none', doneLabel: s.done.indexOf(s.sel) > -1 ? '✓ Completed' : 'Mark as complete',
+      doneCount: s.done.length, pct: Math.round(s.done.length / NT * 100), pctW: Math.round(s.done.length / NT * 100) + '%', progLabel: s.done.length + ' of ' + NT + ' · ' + Math.round(s.done.length / NT * 100) + '%',
+      vlabel: 'Topic ' + (s.sel + 1) + ' · ' + cur.mod.replace(/^Module \d+ · /, ''),
+      metaLine: nTopics + ' lessons · ' + fmtH(COURSE.hrs) + ' · Certificate on completion',
+      curLabel: 'Lesson ' + (s.sel + 1) + ' · ' + cur.mod.replace(/^Module \d+ · /, ''),
+      curDur: fmtT(durOf(s.sel)), doneTotal: s.done.length + '/' + NT + ' done',
+      pbLabel: s.playing ? 'Pause' : (s.prog > 0 && s.prog < 100 ? 'Resume from ' + fmtT(durOf(s.sel) * s.prog / 100) : s.prog >= 100 ? 'Replay lesson' : 'Play lesson'),
+      clsFree: 'pvb' + (!s.owned ? ' pvb-on' : ''), clsEnr: 'pvb' + (s.owned ? ' pvb-on' : ''),
+      viewFree: () => { stopPlay(); this.saveOwned(false); this.writeKey('self_v5_done', (o) => { delete o[COURSE.slug]; }); this.writeKey('self_v5_last', (o) => { delete o[COURSE.slug]; }); this.setState({ owned: false, sel: 0, playing: false, prog: 0, done: [], coOpen: false, step: 'details' }); },
+      viewEnr: () => { stopPlay(); const kk = Math.max(1, Math.round(NT / 3)); const dd2 = []; for (let q = 0; q < kk; q++) dd2.push(q); this.saveOwned(true); this.writeKey('self_v5_done', (o) => { o[COURSE.slug] = dd2; }); this.writeKey('self_v5_last', (o) => { o[COURSE.slug] = kk; }); this.setState({ owned: true, sel: kk, playing: false, prog: 35, done: dd2, coOpen: false }); },
+      timeLabel2: fmtT(durOf(s.sel) * s.prog / 100) + ' / ' + fmtT(durOf(s.sel)),
+      curSec: cs, timeLine: fmtT(cs) + ' / ' + fmtT(durOf(s.sel)), chapNow: chapsT[chapIdx], pct2: Math.round(s.prog),
+      segs: FR.map((f, q) => ({ grow: Math.round(((FR[q + 1] === undefined ? 1 : FR[q + 1]) - f) * 100), fill: Math.max(0, Math.min(100, (s.prog - f * 100) / (((FR[q + 1] === undefined ? 1 : FR[q + 1]) - f) * 100) * 100)) + '%' })),
+      chaps: chapsT.map((t, q) => ({ t, time: fmtT(Math.floor(durOf(s.sel) * FR[q])), cls: 'v4r' + (q === chapIdx ? ' v4r-on' : ''), go: () => this.setState({ prog: FR[q] * 100 }) })),
+      transcript: chapsT.map((t, q) => ({ time: fmtT(Math.floor(durOf(s.sel) * FR[q])), text: TRS[q].replace('{t}', cur.t.toLowerCase()), go: () => this.setState({ prog: FR[q] * 100 }) })),
+      resources: [{ t: 'Lesson worksheet', sub: 'PDF · 2 pages · ' + cur.t }, { t: 'Practice prompts', sub: 'PDF · 1 page · try these out loud' }, { t: 'Cheat sheet: ' + COURSE.track, sub: 'PDF · 1 page · keep this open while you practise' }],
+      coachRole: 'Career coach · 10 yrs',
+      scrubClick: (e) => { const r = e.currentTarget.getBoundingClientRect(); this.setState({ prog: Math.max(0, Math.min(100, (e.clientX - r.left) / r.width * 100)) }); },
+      scrubKey: (e) => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); seekSec(e.key === 'ArrowRight' ? 5 : -5); } },
+      ccOn: s.cc, ccCls: 'vc' + (s.cc ? ' on' : ''), ccText: cur.t, toggleCC: () => this.setState({ cc: !this.state.cc }),
+      toggleFS: toggleFS, pStyle: PBASE + (s.fs ? ';position:fixed;inset:0;z-index:9999;width:100vw;height:100vh;border-radius:0;aspect-ratio:auto;min-height:0' : ''),
+      tabRs: s.tab === 'rs', tabTr: s.tab === 'tr', clsRs: 'v4t' + (s.tab === 'rs' ? ' v4t-on' : ''), clsTr: 'v4t' + (s.tab === 'tr' ? ' v4t-on' : ''),
+      goRs: () => this.setState({ tab: 'rs' }), goTr: () => this.setState({ tab: 'tr' }),
+      wvCls: 'wv' + (s.playing ? ' on' : ''), rew: () => seekSec(-10), fwd: () => seekSec(10),
+      timeLabel: fmtT(durOf(s.sel) * s.prog / 100) + ' / ' + fmtT(durOf(s.sel)), speedLabel: SPEEDS[s.speed] + '×',
+      cycleSpeed: () => this.setState({ speed: (this.state.speed + 1) % SPEEDS.length })
+    };
+    return { mag: this.mag, magOut: this.magOut, glow: this.glow, c, k };
+  }
+}
+
+</script>
+<script src="demo-shell.js" defer></script>
+</body>
+</html>

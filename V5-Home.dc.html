@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SELF – AI-guided course buying</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FBF8F5;}
+a{color:#5146E6}a:hover{color:#3B31C4}
+.v3 *{box-sizing:border-box}
+.v3 :focus-visible{outline:2px solid #5B4BEA;outline-offset:3px;border-radius:10px}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding-left:clamp(18px,4vw,48px);padding-right:clamp(18px,4vw,48px)}
+.disp{font-family:'Outfit',sans-serif}
+.navlink{text-decoration:none;color:#4E4B5F;font-weight:500;font-size:15px}
+.navlink:hover{color:#1F1D2B}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;text-decoration:none;cursor:pointer;border:0;font:inherit;font-weight:700;border-radius:999px;transition:transform .2s,background-color .2s,box-shadow .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-p{background:#5B4BEA;color:#fff;box-shadow:0 12px 26px -14px rgba(91,75,234,.8)}
+.btn-p:hover{background:#4C3DD8;color:#fff}
+.btn-g{background:#fff;color:#1F1D2B;border:1.5px solid #E2DCEA}
+.btn-g:hover{color:#1F1D2B;border-color:#B9AEF5}
+.chip{cursor:pointer;font:inherit;font-size:14px;font-weight:600;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid #E2DCEA;background:#fff;color:#3B3850;transition:all .2s}
+.chip:hover{border-color:#B9AEF5}
+.chip.on{background:#1F1D2B;border-color:#1F1D2B;color:#fff}
+.card{background:#fff;border:1px solid #EEE8F0;border-radius:24px}
+.ccard{transition:border-color .2s,box-shadow .25s,transform .25s}
+.ccard:hover{border-color:#C9C2FF !important;box-shadow:0 18px 40px -24px rgba(81,70,230,.35);transform:translateY(-2px)}
+.ccard:hover .buy-s{background:#3B31C4 !important}
+.lift{transition:transform .25s,box-shadow .25s}
+.lift:hover{transform:translateY(-4px);box-shadow:0 30px 50px -34px rgba(60,40,140,.45)}
+.eb{margin:0 0 14px;font-size:13px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#5146E6}
+.h2{margin:0;font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(30px,3.8vw,46px);line-height:1.1;letter-spacing:-1px;color:#1C1B29}
+.lead{margin:16px 0 0;font-size:clamp(16px,1.5vw,18px);line-height:1.6;color:#5E5A72}
+.strike{text-decoration:line-through;text-decoration-thickness:2px}
+.v3{--ease:cubic-bezier(.16,1,.3,1)}
+.rail{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 4px 24px;scrollbar-width:none;-ms-overflow-style:none;-webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 80px),transparent);mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 80px),transparent)}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start}
+.rail>*:last-child{margin-right:60px}
+/* scroll reveal (only once JS is running) */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0) * 90ms)}
+.js .rv.in{opacity:1;transform:none}
+.bar{width:var(--w);transition:width 1.4s var(--ease) .35s}
+.js .rv:not(.in) .bar{width:0}
+/* hero */
+.pop{animation:popin .6s var(--ease) both;animation-delay:calc(var(--i,0) * 650ms + .4s)}
+@keyframes popin{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:none}}
+.floaty{animation:floaty 6s ease-in-out infinite}
+.floaty2{animation:floaty 7s ease-in-out -2.5s infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+/* FAQ */
+.faq-tab{cursor:pointer;font:inherit;font-size:15px;font-weight:700;min-height:44px;padding:0 20px;border-radius:999px;border:0;background:transparent;color:#5E5A72;transition:background-color .3s,color .3s}
+.faq-tab.on{background:#fff;color:#1F1D2B;box-shadow:0 6px 16px -10px rgba(60,40,140,.5)}
+.faq-item{background:#fff;border:1px solid #EEE8F0;border-radius:20px;transition:border-color .3s,box-shadow .4s var(--ease)}
+.faq-item:hover{border-color:#D9D2FA}
+.faq-item.open{border-color:#C9C0F5;box-shadow:0 26px 44px -32px rgba(91,75,234,.55)}
+.faqbtn{width:100%;display:flex;align-items:center;gap:16px;cursor:pointer;background:none;border:0;font:inherit;text-align:left;padding:20px 22px;font-size:17px;font-weight:700;color:#1F1D2B;min-height:44px}
+.qn{flex:none;width:34px;height:34px;border-radius:10px;background:#F5F2F8;color:#5E5A72;display:grid;place-items:center;font-size:13px;font-weight: 700;transition:background-color .3s,color .3s}
+.open .qn{background:#F1EEFF;color:#4C3DD8}
+.chev{flex:none;width:36px;height:36px;border-radius:50%;background:#F5F2F8;color:#1F1D2B;display:grid;place-items:center;transition:transform .45s var(--ease),background-color .3s,color .3s}
+.open .chev{transform:rotate(180deg);background:#5B4BEA;color:#fff}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.open .faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden}
+.faq-a p{margin:0;padding:0 22px 22px 72px;font-size:16px;line-height:1.6;color:#5E5A72;opacity:0;transform:translateY(-6px);transition:opacity .35s,transform .45s var(--ease)}
+.open .faq-a p{opacity:1;transform:none;transition-delay:.1s}
+/* parents */
+.ben{display:flex;gap:16px;align-items:flex-start;padding:16px;border-radius:18px;transition:background-color .3s}
+.ben:hover{background:rgba(255,255,255,.65)}
+.ben-ic{flex:none;width:46px;height:46px;border-radius:14px;background:#fff;display:grid;place-items:center;color:#5B4BEA;box-shadow:0 8px 18px -12px rgba(60,40,140,.6);transition:transform .4s var(--ease)}
+.ben:hover .ben-ic{transform:rotate(-8deg) scale(1.06)}
+.ping{position:absolute;inset:-4px;border-radius:50%;border:2px solid #B9AEF5;animation:ping 2s ease-out infinite}
+@keyframes ping{from{transform:scale(.8);opacity:1}to{transform:scale(1.5);opacity:0}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.pop,.floaty,.floaty2,.ping{animation:none}.bar,.faq-a,.chev{transition:none}}
+.arrow{width:48px;height:48px;border-radius:50%;border:1.5px solid #E2DCEA;background:#fff;display:grid;place-items:center;cursor:pointer;color:#1F1D2B}
+.arrow:hover{border-color:#B9AEF5}
+.wig{display:inline-block;animation:wig 2.8s ease-in-out infinite}
+@keyframes wig{0%,86%,100%{transform:rotate(0)}90%{transform:rotate(-8deg)}94%{transform:rotate(8deg)}}
+@media (max-width:820px){.navlinks{display:none !important}.hide-sm{display:none !important}}
+@media (prefers-reduced-motion:reduce){.wig{animation:none}.lift,.btn{transition:none}}
+.spec .navlink{text-decoration:none;color:#4E4B5F;position:relative;padding:6px 2px;transition:color .3s}.spec .navlink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:#5B4BEA;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}.spec .navlink:hover{color:#1F1D2B}.spec .navlink:hover::after{transform:scaleX(1);transform-origin:left}.spec-av{cursor:default}
+
+body{font-family:'Manrope',system-ui,sans-serif}
+h1,h2,h3,.heading,.o,.disp,.h3x{font-family:'Outfit',sans-serif}
+/* FAQ left column */
+.faq-l{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:28px;position:sticky;top:96px;align-self:flex-start}
+.faq-facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.faq-facts li{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:600;color:#1C1B29}
+.faq-facts i{flex:none;width:28px;height:28px;border-radius:50%;background:#ECE9FF;display:grid;place-items:center}
+.faq-cta{padding:24px;border-radius:24px;color:#fff;display:flex;flex-direction:column;gap:18px;background:radial-gradient(280px 180px at 100% 0%,rgba(124,111,240,.45),rgba(124,111,240,0) 70%),#1F1D2B}
+.faq-av{position:relative;flex:none;width:46px;height:46px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px rgba(167,156,255,.35)}
+.faq-av i{position:absolute;right:0;bottom:1px;width:11px;height:11px;border-radius:50%;background:#1F9D63;border:2px solid #1F1D2B}
+.faq-ctab{align-self:flex-start;background:#fff;color:#1F1D2B;padding:0 22px;font-size:15px}
+.faq-ctab:hover{background:#ECE9FF;color:#1F1D2B}
+.faq-ctab svg{transition:transform .4s var(--ease)}
+.faq-ctab:hover svg{transform:translateX(3px)}
+@media (max-width:860px){.faq-l{position:static;gap:22px}}
+/* career coach card */
+.coach{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.35fr);background:#fff;border:1px solid #ECE6EE;border-radius:28px;overflow:hidden;box-shadow:0 30px 60px -44px rgba(81,70,230,.45);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .3s}
+.coach:hover{transform:translateY(-4px);border-color:#DCD5FA;box-shadow:0 40px 70px -42px rgba(81,70,230,.55)}
+.coach-l{position:relative;isolation:isolate;overflow:hidden;padding:clamp(26px,3.4vw,40px);color:#fff;background:linear-gradient(150deg,#2B2566 0%,#5146E6 100%);display:flex;flex-direction:column;align-items:flex-start}
+.cl-blob{position:absolute;z-index:-1;right:-60px;top:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(224,123,90,.55),rgba(224,123,90,0) 70%)}
+.cl-blob.b2{right:auto;top:auto;left:-70px;bottom:-90px;width:240px;height:240px;background:radial-gradient(circle,rgba(167,156,255,.55),rgba(167,156,255,0) 70%)}
+.coach-av{position:relative;width:92px;height:92px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -14px rgba(0,0,0,.5);transition:transform .5s var(--ease)}
+.coach:hover .coach-av{transform:scale(1.05) rotate(-3deg)}
+.coach-av b{font-family:'Outfit',sans-serif;font-size:32px;font-weight:500;letter-spacing:1px;color:#5146E6}
+.coach-av i{position:absolute;right:3px;bottom:3px;width:18px;height:18px;border-radius:50%;background:#1F9D63;border:3px solid #fff}
+.coach-av .ping{border-color:rgba(255,255,255,.55)}
+.coach-l p{margin:0}
+.coach-eb{margin-top:22px !important;font-size:12px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:#FFC2AC}
+.coach-name{margin:6px 0 0;font-family:'Outfit',sans-serif;font-size:clamp(26px,2.6vw,32px);font-weight:400;letter-spacing:-.6px;line-height:1.1;color:#fff}
+.coach-role{margin-top:4px !important;font-size:14px;font-weight:600;color:#D9D5FF}
+.coach-chips{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.coach-chips li{font-size:12px;font-weight:700;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.coach-r{padding:clamp(24px,3.4vw,40px);display:flex;flex-direction:column;justify-content:center}
+.coach-q{margin:0;font-family:'Outfit',sans-serif;font-size:clamp(22px,2.3vw,28px);font-weight:400;letter-spacing:-.5px;line-height:1.2;color:#1C1B29}
+.coach-q span{color:#5146E6}
+.coach-bens{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+.coach-bens li{display:flex;align-items:flex-start;gap:14px}
+.coach-bens b{display:block;font-size:15px;font-weight:700;color:#1C1B29}
+.coach-bens div span{display:block;font-size:14px;line-height:1.5;color:#5E5A72}
+.cb-ic{flex:none;width:40px;height:40px;border-radius:12px;background:#F1EEFF;display:grid;place-items:center;transition:transform .4s var(--ease),background-color .3s}
+.coach-bens li:hover .cb-ic{transform:translateY(-2px) rotate(-6deg);background:#E4DEFF}
+.coach-act{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.coach-btn{padding:0 26px;font-size:16px}
+.coach-btn svg{transition:transform .4s var(--ease)}
+.coach-btn:hover svg{transform:translateX(4px)}
+.coach-note{font-size:13px;color:#5C5A63}
+/* reveal on scroll (armed only when JS runs) */
+.coach.armed .coach-l{opacity:0;transform:translateX(-24px);transition:opacity .8s var(--ease),transform .9s var(--ease)}
+.coach.armed .coach-q,.coach.armed .coach-bens li,.coach.armed .coach-act{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .8s var(--ease);transition-delay:.15s}
+.coach.armed .coach-bens li:nth-child(1){transition-delay:.25s}.coach.armed .coach-bens li:nth-child(2){transition-delay:.37s}.coach.armed .coach-bens li:nth-child(3){transition-delay:.49s}.coach.armed .coach-act{transition-delay:.6s}
+.coach.armed.in .coach-l,.coach.armed.in .coach-q,.coach.armed.in .coach-bens li,.coach.armed.in .coach-act{opacity:1;transform:none}
+@media (max-width:860px){.coach{grid-template-columns:1fr}.coach-act .btn{width:100%}}
+@media (prefers-reduced-motion:reduce){.coach,.coach-av,.cb-ic{transition:none}.coach:hover{transform:none}.coach.armed .coach-l,.coach.armed .coach-q,.coach.armed .coach-bens li,.coach.armed .coach-act{opacity:1;transform:none;transition:none}}
+.coach-form{margin-top:22px;padding-top:22px;border-top:1px solid #F1ECF2;animation:cfin .5s var(--ease) both}
+@keyframes cfin{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.cf-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.cf-l{display:block;margin:0 0 8px;font-size:14px;font-weight:700;color:#1C1B29}
+.cf-l span{font-weight:500;color:#5C5A63}
+.cf-row{display:flex;border:1.5px solid #ECE6EE;border-radius:14px;overflow:hidden;background:#fff;transition:border-color .2s,box-shadow .2s}
+.cf-row:focus-within{border-color:#5146E6;box-shadow:0 0 0 4px rgba(81,70,230,.12)}
+.cf-row.bad{border-color:#C2543A}
+.cf-row span{display:flex;align-items:center;padding:0 12px;background:#FBF8F5;border-right:1px solid #ECE6EE;font-weight:600;color:#45434D}
+.cf-row input{flex:1;min-width:0;border:0;outline:none;font:inherit;font-size:16px;padding:12px 14px;background:transparent;color:#1C1B29}
+.cf-slots{display:flex;flex-wrap:wrap;gap:8px}
+.cf-slot{font:inherit;font-size:14px;font-weight:700;padding:0 16px;min-height:46px;border-radius:999px;border:1.5px solid #ECE6EE;background:#fff;color:#1C1B29;cursor:pointer;transition:border-color .2s,background-color .2s,color .2s}
+.cf-slot:hover{border-color:#B9AEFF}
+.cf-slot.on{background:#5146E6;border-color:#5146E6;color:#fff}
+.cf-agree{margin-top:16px;display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.5;color:#45434D;cursor:pointer}
+.cf-agree input{flex:none;width:18px;height:18px;margin:2px 0 0;accent-color:#5146E6}
+.cf-err{margin:8px 0 0;min-height:18px;font-size:13px;color:#C2543A}
+.cf-acts{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:4px}
+.cf-acts .btn{padding:0 24px}
+.cf-acts .btn[disabled]{opacity:.45;cursor:not-allowed;box-shadow:none}
+.cf-cancel{background:none;border:0;font:inherit;font-size:15px;font-weight:700;color:#5C5A63;cursor:pointer;padding:10px 4px}
+.cf-cancel:hover{color:#1C1B29}
+.coach-ok{margin-top:22px;padding:16px 18px;border-radius:18px;background:#F6F4FF;display:flex;align-items:center;gap:14px}
+.coach-ok span{flex:none;width:36px;height:36px;border-radius:50%;background:#5146E6;display:grid;place-items:center}
+.coach-ok p{margin:0;font-size:15px;color:#1C1B29}
+
+</style>
+</helmet>
+<div style="font-family: 'Manrope', system-ui, sans-serif; color: #1C1B29; background: #FBF8F5; width: 100%; min-width: 0">
+
+<!-- OFFER BAR -->
+<div style="background: #1C1B29; color: #FFFFFF">
+<div style="max-width: 1280px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 16px; font-size: 14px; font-weight: 600; text-align: center">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9C2FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"></path></svg>
+<span>New Year offer: <b style="color: #C9C2FF">25% off every course</b> with code</span>
+<button type="button" onClick="{{copyCode}}" aria-label="Copy code NEWYEAR26" style="cursor: pointer; font: inherit; font-weight: 700; letter-spacing: .08em; color: #1C1B29; background: #FFFFFF; border: 1.5px dashed #A79CFF; border-radius: 8px; padding: 4px 12px; min-height: 32px">NEWYEAR26</button>
+<span style="color: #C9C5D8">{{copyLabel}} · ends 15 Jan</span>
+</div>
+</div>
+
+<!-- TOP BAR -->
+<header style="background: #FFFFFF; border-bottom: 1px solid #ECE6EE">
+<div style="max-width: 1280px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px">
+<a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1C1B29; margin-right: auto">
+<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24"><path d="M12 1.5C12.9 7.6 16.4 11.1 22.5 12 16.4 12.9 12.9 16.4 12 22.5 11.1 16.4 7.6 12.9 1.5 12 7.6 11.1 11.1 7.6 12 1.5Z" fill="#5146E6" transform="rotate(-12 12 12)"></path></svg>
+<span style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 24px; letter-spacing: 5px">SELF</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px 22px; font-size: 15px; font-weight: 600">
+<a href="V5-Discover.dc.html" style="color: #1C1B29; text-decoration: none; padding: 12px 0">Career Discovery</a>
+<a href="V5-Courses.dc.html" style="color: #1C1B29; text-decoration: none; padding: 12px 0">Courses</a>
+<a href="V5-Learn.dc.html" style="color: #1C1B29; text-decoration: none; padding: 12px 0">My Learning</a>
+<a href="V5-Login.dc.html" style="color: #1C1B29; text-decoration: none; padding: 12px 0">Log in</a>
+</nav>
+</div>
+</header>
+
+<!-- HERO + CHAT -->
+<div id="top" style="background: radial-gradient(700px 420px at 85% 0%, #E4DEFF 0%, rgba(228,222,255,0) 72%), radial-gradient(620px 380px at 10% 40%, #FDE0D3 0%, rgba(253,224,211,0) 72%)">
+<section style="max-width: 1120px; margin: 0 auto; padding: 32px 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center">
+<p style="margin: 0; display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 12px; background: #FFFFFF; border: 1.5px solid #DAD3FA; color: #1C1B29; font-size: 15px; font-weight: 500; padding: 6px 18px 6px 6px; border-radius: 999px"><span style="background: #5146E6; color: #FFFFFF; font-size: 13px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; padding: 8px 14px; border-radius: 999px">Launch offer</span><span>Career discovery <span style="text-decoration: line-through; color: #5C5A63">₹999</span> <span style="color: #5146E6; font-weight: 700">FREE</span> for a limited time</span></p>
+<h1 style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 400; font-size: clamp(28px, 4vw, 56px); line-height: 1.08; letter-spacing: -1.5px"><span style="white-space: nowrap">Chat with Meera.</span> <span style="white-space: nowrap">Get your report.</span><br><span style="color: #5146E6">Start the right course.</span></h1>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 4px">
+<a href="#chat" style="background: #5146E6; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 16px; padding: 14px 22px; border-radius: 999px">Start with Meera ↓</a>
+<a href="#shop" style="background: #FFFFFF; color: #1C1B29; text-decoration: none; font-weight: 700; font-size: 16px; padding: 13px 21px; border-radius: 999px; border: 1.5px solid #D9D2E4">I know what I want — browse courses</a>
+</div>
+</section>
+
+<section id="chat" aria-label="Chat with Meera" style="max-width: 860px; margin: 0 auto; padding: 8px 24px 56px">
+<div style="background: #FFFFFF; border: 1px solid #ECE6EE; border-radius: 26px; box-shadow: 0 30px 70px rgba(81,70,230,0.14); overflow: hidden">
+
+<!-- chat header + stepper -->
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 16px 20px; border-bottom: 1px solid #F3EEF3">
+<div style="display: flex; align-items: center; gap: 12px; margin-right: auto">
+<span aria-hidden="true" style="width: 42px; height: 42px; border-radius: 50%; background: #E4DEFF; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 1.5C12.9 7.6 16.4 11.1 22.5 12 16.4 12.9 12.9 16.4 12 22.5 11.1 16.4 7.6 12.9 1.5 12 7.6 11.1 11.1 7.6 12 1.5Z" fill="#5146E6"></path></svg></span>
+<div style="text-align: left"><p style="margin: 0; font-weight: 700; font-size: 16px">Meera</p><p style="margin: 2px 0 0; font-size: 13px; color: #5C5A63; display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #1F9D63"></span>AI career guide · online</p></div>
+</div>
+<ol aria-label="Progress" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="3">
+<li style="{{s.style}}">{{s.label}}</li>
+</sc-for>
+</ol>
+</div>
+
+<!-- messages -->
+<div aria-live="polite" style="padding: 22px 20px; display: flex; flex-direction: column; gap: 12px; background: #FDFCFB; text-align: left">
+<sc-for list="{{msgs}}" as="m" hint-placeholder-count="2">
+
+<sc-if value="{{m.isAi}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0; align-self: flex-start; max-width: 80%; background: #F1EFFF; color: #1C1B29; padding: 12px 16px; border-radius: 18px 18px 18px 4px; font-size: 16px; line-height: 1.55">{{m.text}}</p>
+</sc-if>
+
+<sc-if value="{{m.isMe}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; align-self: flex-end; max-width: 75%; background: #5146E6; color: #FFFFFF; padding: 12px 16px; border-radius: 18px 18px 4px 18px; font-size: 16px; line-height: 1.55">{{m.text}}</p>
+</sc-if>
+
+<sc-if value="{{m.isReport}}" hint-placeholder-val="{{ false }}">
+<div style="align-self: flex-start; width: 100%; max-width: 560px; border: 1px solid #ECE6EE; border-radius: 20px; overflow: hidden; background: #FFFFFF">
+<div style="background: #5146E6; color: #FFFFFF; padding: 16px 20px">
+<p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #E4E1FF">Your career snapshot</p>
+<p style="margin: 6px 0 0; font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 500">{{report.type}}</p>
+<p style="margin: 4px 0 0; font-size: 14px; color: #E4E1FF">{{report.tagline}}</p>
+</div>
+<div style="padding: 18px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px">
+<div><p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; color: #5C5A63">Top strengths</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{report.strengths}}" as="st" hint-placeholder-count="3"><span style="font-size: 13px; font-weight: 600; background: #F1EFFF; color: #4338CA; padding: 6px 10px; border-radius: 999px">{{st}}</span></sc-for>
+</div></div>
+<div><p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; color: #5C5A63">Career interest code</p><p style="margin: 0; font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 500">{{report.code}}</p><p style="margin: 2px 0 0; font-size: 13px; color: #5C5A63">{{report.codeText}}</p></div>
+<div><p style="margin: 0 0 8px; font-size: 13px; font-weight: 700; color: #5C5A63">Grow next</p><p style="margin: 0; font-size: 15px; font-weight: 600">{{report.grow}}</p></div>
+</div>
+<div style="padding: 0 20px 16px"><a href="#full-report" style="font-weight: 700; font-size: 14px; padding: 10px 0; display: inline-block">See full report →</a></div>
+</div>
+</sc-if>
+
+<sc-if value="{{m.isPlan}}" hint-placeholder-val="{{ false }}">
+<div style="align-self: flex-start; width: 100%; max-width: 640px; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{plan}}" as="c" hint-placeholder-count="3">
+<div style="{{c.cardStyle}}">
+<button type="button" onClick="{{c.toggle}}" aria-pressed="{{c.pressed}}" aria-label="{{c.toggleLabel}}" style="{{c.boxStyle}}">
+<sc-if value="{{c.on}}" hint-placeholder-val="{{ true }}"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></sc-if>
+</button>
+<div style="flex: 1 1 260px; min-width: 0">
+<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><span style="font-weight: 700; font-size: 17px">{{c.title}}</span><span style="{{c.tagStyle}}">{{c.tag}}</span></p>
+<p style="margin: 4px 0 0; font-size: 14px; color: #4338CA; font-weight: 600">{{c.why}}</p>
+<p style="margin: 4px 0 0; font-size: 13px; color: #5C5A63">{{c.meta}}</p>
+</div>
+<span style="display: flex; flex-direction: column; align-items: flex-end; line-height: 1.15"><span style="font-size: 13px; color: #5C5A63; text-decoration: line-through">{{c.mrp}}</span><span style="font-family: 'Outfit', sans-serif; font-size: 21px; font-weight: 500; white-space: nowrap">{{c.price}}</span></span>
+</div>
+</sc-for>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; background: #FFF1EA; border: 1.5px dashed #E9967A; border-radius: 16px; padding: 14px 16px">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C2543A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"></path><circle cx="7.5" cy="7.5" r="1.5"></circle></svg>
+<p style="margin: 0; flex: 1 1 200px; font-size: 14px"><strong>NEWYEAR26</strong> applied · 25% off · you save {{chatDisc}}</p>
+<p style="margin: 0; font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500">Total {{chatTotal}}</p>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{m.isCheckout}}" hint-placeholder-val="{{ false }}">
+<div style="align-self: flex-start; width: 100%; max-width: 560px; border: 1px solid #ECE6EE; border-radius: 20px; background: #FFFFFF; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #5C5A63">Order summary</p>
+<sc-for list="{{chosen}}" as="o" hint-placeholder-count="2">
+<p style="margin: 0; display: flex; justify-content: space-between; gap: 12px; font-size: 15px"><span>{{o.title}}</span><span style="font-weight: 600">{{o.price}}</span></p>
+</sc-for>
+<p style="margin: 0; display: flex; justify-content: space-between; gap: 12px; font-size: 15px; color: #C2543A"><span>NEWYEAR26 discount</span><span style="font-weight: 600">−{{chatDisc}}</span></p>
+<p style="margin: 6px 0 0; padding-top: 10px; border-top: 1px solid #F3EEF3; display: flex; justify-content: space-between; gap: 12px; font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 500"><span>Total</span><span>{{chatTotal}}</span></p>
+<sc-if value="{{minor}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 4px 0 0; font-size: 14px; line-height: 1.5; background: #F1EFFF; color: #3730A3; padding: 10px 12px; border-radius: 12px">You're under 18, so we'll send this plan to your parent or guardian to approve and pay.</p>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{m.isDone}}" hint-placeholder-val="{{ false }}">
+<div style="align-self: flex-start; width: 100%; max-width: 560px; border-radius: 20px; background: #EAF7F0; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; display: flex; align-items: center; gap: 10px; font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 500"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#167A4C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6"></path></svg>{{doneTitle}}</p>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #2D4A3C">{{doneText}}</p>
+<a href="V5-Learn.dc.html" style="align-self: flex-start; background: #5146E6; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 15px; padding: 13px 20px; border-radius: 999px">▶ Start watching</a>
+</div>
+</sc-if>
+
+</sc-for>
+
+<!-- quick replies -->
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px">
+<sc-for list="{{replies}}" as="r" hint-placeholder-count="3">
+<button type="button" onClick="{{r.pick}}" style="{{r.style}}">{{r.label}}</button>
+</sc-for>
+</div>
+</div>
+
+<!-- input -->
+<div style="padding: 12px 16px; border-top: 1px solid #F3EEF3; display: flex; gap: 8px; align-items: center">
+<label for="ask" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Message Meera</label>
+<input id="ask" type="text" placeholder="Type your answer, or ask Meera anything…" style="flex: 1; min-width: 0; font: inherit; font-size: 15px; border: 1.5px solid #ECE6EE; border-radius: 999px; padding: 13px 18px; background: #FBF8F5; color: #1C1B29; outline: none">
+<button type="button" aria-label="Send" style="width: 48px; height: 48px; flex: none; border: 0; border-radius: 50%; background: #5146E6; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+</div>
+</div>
+
+
+</section>
+</div>
+
+<!-- SECTION 2: BROWSE & BUY -->
+<section id="shop" aria-labelledby="shop-h" style="background: #FFFFFF; border-top: 1px solid #ECE6EE; border-bottom: 1px solid #ECE6EE">
+<div style="max-width: 1280px; margin: 0 auto; padding: 64px 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 18px 24px; margin-bottom: 28px">
+<div>
+<h2 id="shop-h" style="margin: 0; font-family: 'Outfit', sans-serif; font-weight: 400; font-size: clamp(30px, 3.8vw, 46px); letter-spacing: -1px; line-height: 1.1">Skills to Take You Further</h2>
+<p style="margin: 10px 0 0; max-width: 640px; font-size: 16px; line-height: 1.6; color: #45434D">Your knowledge gets you started. Your skills help you stand out.</p>
+
+</div>
+
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 18px">
+<sc-for list="{{shopItems}}" as="c" hint-placeholder-count="8">
+<a class="ccard" href="{{c.href}}" aria-label="{{c.title}}: open course" style="background: #FBF8F5; border: 1px solid #ECE6EE; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: #1C1B29; cursor: pointer">
+<div style="{{c.band}}">
+<img src="{{c.img}}" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px">
+<span></span>
+</div>
+<span aria-hidden="true" style="align-self: center; width: 56px; height: 56px; border-radius: 50%;  background: #FFFFFF; box-shadow: 0 8px 20px rgba(28,27,41,0.18); display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#5146E6"></path></svg></span>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
+<span style="font-size: 12px; font-weight: 700; background: rgba(255,255,255,0.9); padding: 4px 8px; border-radius: 6px">Free preview</span>
+<span style="font-size: 12px; font-weight: 700; background: rgba(28,27,41,0.82); color: #FFFFFF; padding: 4px 8px; border-radius: 6px">{{c.lessonsText}}</span>
+</div>
+</div>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<h3 style="margin: 0; font-size: 19px; font-weight: 600; line-height: 1.25">{{c.title}}</h3>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #45434D">{{c.desc}}</p>
+<p style="margin: 0; font-size: 13px; color: #5C5A63">{{c.meta}}</p>
+<div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #ECE6EE; display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span style="margin-right: auto; display: flex; flex-direction: column; line-height: 1.15"><span style="font-size: 13px; color: #5C5A63; text-decoration: line-through">{{c.mrpText}}</span><span style="font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 22px">{{c.priceText}}</span><span style="font-size: 11px; font-weight: 700; color: #A3412A">with NEWYEAR26</span></span>
+<span class="buy-s" style="display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; font-weight: 700; font-size: 14px; line-height: 1.2; background: #5146E6; color: #FFFFFF;  border-radius: 999px; padding: 12px 16px; min-height: 44px;">Buy now</span>
+</div>
+</div>
+</a>
+</sc-for>
+</div>
+
+<sc-if value="{{showBar}}" hint-placeholder-val="{{ false }}">
+
+</sc-if>
+
+<sc-if value="{{showCheckout}}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 22px; background: #FBF8F5; border: 1.5px solid #5146E6; border-radius: 20px; padding: 22px; display: flex; flex-wrap: wrap; gap: 20px 32px">
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #5C5A63">Order summary</p>
+<sc-for list="{{cartItems}}" as="o" hint-placeholder-count="2">
+<p style="margin: 0; display: flex; justify-content: space-between; gap: 12px; font-size: 15px"><span>{{o.title}}</span><span style="font-weight: 600">{{o.price}}</span></p>
+</sc-for>
+<p style="margin: 0; display: flex; justify-content: space-between; gap: 12px; font-size: 15px; color: #C2543A"><span>NEWYEAR26 discount</span><span style="font-weight: 600">−{{shopDisc}}</span></p>
+<p style="margin: 4px 0 0; padding-top: 10px; border-top: 1px solid #ECE6EE; display: flex; justify-content: space-between; font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 500"><span>Total</span><span>{{shopTotal}}</span></p>
+</div>
+<div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 10px; justify-content: center">
+<button type="button" onClick="{{pay}}" style="font: inherit; font-weight: 700; font-size: 16px; background: #5146E6; color: #FFFFFF; border: 0; border-radius: 999px; padding: 15px 22px; min-height: 48px; cursor: pointer">Pay with UPI</button>
+<button type="button" onClick="{{pay}}" style="font: inherit; font-weight: 700; font-size: 16px; background: #FFFFFF; color: #1C1B29; border: 1.5px solid #D9D2E4; border-radius: 999px; padding: 14px 22px; min-height: 48px; cursor: pointer">Pay by card</button>
+<p style="margin: 0; font-size: 13px; line-height: 1.5; color: #5C5A63">Under 18? We'll send a link to your parent or guardian to approve and pay.</p>
+<button type="button" onClick="{{backToShop}}" style="font: inherit; font-size: 14px; font-weight: 600; color: #5146E6; background: none; border: 0; padding: 10px 0; min-height: 44px; cursor: pointer; align-self: flex-start">← Keep browsing</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{showShopDone}}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 22px; background: #EAF7F0; border-radius: 20px; padding: 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px">
+<svg aria-hidden="true" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#167A4C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M7.5 12.5l3 3 6-6"></path></svg>
+<div style="flex: 1 1 300px"><p style="margin: 0; font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 500">You're enrolled!</p><p style="margin: 4px 0 0; font-size: 15px; color: #2D4A3C">{{doneList}} · now in My Learning. Want course picks that fit you? Chat with Meera anytime.</p></div>
+<a href="V5-Learn.dc.html" style="background: #5146E6; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 15px; padding: 13px 20px; border-radius: 999px">▶ Start watching</a>
+<button type="button" onClick="{{shopReset}}" style="font: inherit; font-size: 14px; font-weight: 600; color: #167A4C; background: none; border: 0; padding: 10px 0; min-height: 44px; cursor: pointer">Browse more</button>
+</div>
+</sc-if>
+</div>
+</section>
+
+<div class="v3">
+<!-- STUDENT STORIES: CAROUSEL -->
+<section style="padding: 72px 0 56px">
+<div class="wrap">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px">
+<div>
+<p class="eb">From confused to clear</p>
+<h2 class="h2">Students like you.</h2>
+</div>
+<div style="display: flex; gap: 10px">
+<button type="button" class="arrow" aria-label="Previous stories" onClick="{{prev}}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></button>
+<button type="button" class="arrow" aria-label="Next stories" onClick="{{next}}"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+</div>
+</div>
+<div class="rail" ref="{{railRef}}" style="margin-top: 36px">
+<sc-for list="{{stories}}" as="s" hint-placeholder-count="5">
+<figure class="card lift" style="margin: 0; flex: 0 0 clamp(280px,30vw,340px); overflow: hidden; display: flex; flex-direction: column; background: #FBF8F6">
+<div style="position: relative; height: 210px; background: {{s.bg}}; display: grid; place-items: center; overflow: hidden">
+<sc-if value="{{s.hasPhoto}}" hint-placeholder-val="{{false}}">
+<svg role="img" aria-label="{{s.alt}}" viewBox="0 0 340 210" preserveAspectRatio="xMidYMax slice" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<circle cx="270" cy="40" r="60" fill="{{s.accent}}" opacity=".35"></circle>
+<path d="M95 210c6-48 36-74 75-74s69 26 75 74z" fill="{{s.shirt}}"></path>
+<rect x="156" y="112" width="28" height="30" rx="10" fill="{{s.skin}}"></rect>
+<ellipse cx="170" cy="88" rx="38" ry="44" fill="{{s.skin}}"></ellipse>
+<path d="{{s.hair}}" fill="#2A2235"></path>
+<circle cx="157" cy="92" r="3.5" fill="#2A2235"></circle><circle cx="183" cy="92" r="3.5" fill="#2A2235"></circle>
+<path d="M159 109c6 6 16 6 22 0" fill="none" stroke="#2A2235" stroke-width="3" stroke-linecap="round"></path>
+</svg>
+</sc-if>
+<sc-if value="{{s.noPhoto}}" hint-placeholder-val="{{true}}">
+<span aria-hidden="true" style="position: absolute; right: -36px; top: -46px; width: 150px; height: 150px; border-radius: 50%; background: {{s.accent}}; opacity: 0.14"></span><span aria-hidden="true" style="position: absolute; left: -24px; bottom: -40px; width: 96px; height: 96px; border-radius: 50%; background: {{s.accent}}; opacity: 0.08"></span><span aria-hidden="true" class="disp" style="position: relative; width: 108px; height: 108px; border-radius: 50%; background: #fff; display: grid; place-items: center; font-size: 40px; font-weight: 600; letter-spacing: 1px; color: {{s.accent}}; box-shadow: 0 14px 30px -18px rgba(28,27,41,.35)">{{s.initials}}</span>
+</sc-if>
+<span style="position: absolute; left: 14px; bottom: 14px; font-size: 12px; font-weight: 700; background: #fff; color: #1F1D2B; padding: 6px 10px; border-radius: 999px">{{s.role}}</span>
+</div>
+<div style="padding: 22px; display: flex; flex-direction: column; gap: 14px; flex: 1">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12px; font-weight: 700">
+<span style="background: #F5F2F8; color: #5E5A72; padding: 5px 10px; border-radius: 8px">{{s.before}}</span>
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B4BEA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+<span style="background: #F1EEFF; color: #4C3DD8; padding: 5px 10px; border-radius: 8px">{{s.after}}</span>
+</div>
+<blockquote style="margin: 0; font-size: 16px; line-height: 1.55">“{{s.quote}}”</blockquote>
+<figcaption style="margin-top: auto; font-size: 15px; font-weight: 700">{{s.name}}</figcaption>
+</div>
+</figure>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- CAREER COACH -->
+<section aria-labelledby="h-coach" style="padding: 0 0 72px">
+<div class="wrap">
+<div class="coach" ref="{{coachRef}}">
+<div class="coach-l">
+<span class="cl-blob floaty" aria-hidden="true"></span><span class="cl-blob b2 floaty2" aria-hidden="true"></span>
+<div class="coach-av" aria-hidden="true"><span class="ping"></span><b>GS</b><i></i></div>
+<p class="coach-eb">Your career coach</p>
+<h3 id="h-coach" class="coach-name">Gaurav Sharma</h3>
+<p class="coach-role">Career coach at SELF</p>
+<ul class="coach-chips"><li>Free 15-min call</li><li>English or Hindi</li><li>Replies within a day</li></ul>
+</div>
+<div class="coach-r">
+<p class="coach-q">Not sure what’s next? <span>Talk it through with Gaurav.</span></p>
+<ul class="coach-bens">
+<li><span class="cb-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5146E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5M9 13h6M9 17h4"></path></svg></span><div><b>Make sense of your report</b><span>Go through your strengths and interests together.</span></div></li>
+<li><span class="cb-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5146E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M15.5 8.5l-2 5-5 2 2-5z"></path></svg></span><div><b>Pick the right course</b><span>Get an honest view on which course fits you best.</span></div></li>
+<li><span class="cb-ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5146E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6 4 4 7-7M15 8h6v6"></path></svg></span><div><b>Plan your next step</b><span>Leave with a simple plan for the months ahead.</span></div></li>
+</ul>
+<sc-if value="{{coach.showBtn}}" hint-placeholder-val="{{true}}">
+<div class="coach-act"><button type="button" class="btn btn-p coach-btn" onClick="{{coach.openForm}}">Book a free call<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button><span class="coach-note">Takes under a minute to book</span></div>
+</sc-if>
+<sc-if value="{{coach.open}}" hint-placeholder-val="{{false}}">
+<div class="coach-form">
+<div class="cf-grid">
+<div>
+<label for="cfmob" class="cf-l">Mobile number</label>
+<div class="{{coach.rowCls}}"><span>+91</span><input id="cfmob" type="tel" inputmode="numeric" autocomplete="tel-national" maxlength="16" placeholder="98765 43210" value="{{coach.mobFmt}}" onChange="{{coach.setMob}}" aria-describedby="cferr"></div>
+</div>
+<div>
+<p class="cf-l">Best time to call <span>(optional)</span></p>
+<div class="cf-slots" role="group" aria-label="Best time to call"><sc-for list="{{coach.slots}}" as="t" hint-placeholder-count="3"><button type="button" class="{{t.cls}}" aria-pressed="{{t.on}}" onClick="{{t.pick}}">{{t.label}}</button></sc-for></div>
+</div>
+</div>
+<label class="cf-agree"><input type="checkbox" checked="{{coach.agree}}" onChange="{{coach.toggle}}"><span>I agree that SELF can call me on this number about my career and courses.</span></label>
+<p id="cferr" role="alert" class="cf-err">{{coach.err}}</p>
+<div class="cf-acts"><button type="button" class="btn btn-p" disabled="{{coach.disabled}}" onClick="{{coach.send}}">Request a call</button><button type="button" class="cf-cancel" onClick="{{coach.cancel}}">Cancel</button></div>
+</div>
+</sc-if>
+<sc-if value="{{coach.done}}" hint-placeholder-val="{{false}}">
+<div class="coach-ok" role="status"><span aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></span><p><b>Request received.</b> Gaurav will call you on {{coach.num}} {{coach.when}}.</p></div>
+</sc-if>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding: 72px 0; background: #FFFFFF; border-top: 1px solid #ECE6EE; border-bottom: 1px solid #ECE6EE">
+<div class="wrap" style="display: flex; flex-wrap: wrap; gap: clamp(32px,5vw,72px)">
+<div class="faq-l">
+<div>
+<p class="eb">FAQ</p>
+<h2 class="h2">Questions, answered.</h2>
+<p class="lead" style="max-width: 380px">What students and parents ask us most before they start.</p>
+</div>
+<ul class="faq-facts">
+<li><i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5146E6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></i>Career discovery is free during launch</li>
+<li><i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5146E6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></i>First lesson of every course is free</li>
+<li><i aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5146E6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg></i>25% off every course with NEWYEAR26</li>
+</ul>
+<div class="faq-cta">
+<div style="display: flex; align-items: center; gap: 14px">
+<span class="faq-av" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 1.5C12.9 7.6 16.4 11.1 22.5 12 16.4 12.9 12.9 16.4 12 22.5 11.1 16.4 7.6 12.9 1.5 12 7.6 11.1 11.1 7.6 12 1.5Z" fill="#5146E6"></path></svg><i></i></span>
+<span><b style="display: block; font-size: 17px">Still curious?</b><span style="font-size: 14px; color: #C9C5D8">Meera, our AI career guide, answers in seconds.</span></span>
+</div>
+<a class="btn faq-ctab" href="#chat">Ask Meera — free<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+<div style="flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="5">
+<div class="{{f.cls}}">
+<button type="button" class="faqbtn" aria-expanded="{{f.exp}}" onClick="{{f.toggle}}">
+<span class="qn" aria-hidden="true">{{f.n}}</span>
+<span style="flex: 1">{{f.q}}</span>
+<span class="chev" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>
+</button>
+<div class="faq-a"><div><p>{{f.a}}</p></div></div>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding: 72px 0; background: #1F1D2B; color: #fff">
+<div class="wrap" style="text-align: center; max-width: 820px">
+<p style="display: inline-block; margin: 0 0 22px; font-size: 13px; font-weight: 700; letter-spacing: .06em; background: #5B4BEA; color: #fff; padding: 6px 12px; border-radius: 999px">FREE DURING LAUNCH · <span class="strike">₹999</span> LATER</p>
+<h2 class="disp" style="margin: 0; font-weight: 400; font-size: clamp(32px,4.2vw,52px); line-height: 1.1; letter-spacing: -1px">Twelve minutes from now, you’ll know yourself a little better.</h2>
+<div style="margin-top: 32px">
+<a class="btn" href="#chat" style="background: #5B4BEA; color: #fff; padding: 0 32px; min-height: 58px; font-size: 17px">Start free discovery</a>
+</div>
+<p style="margin: 18px 0 0; font-size: 14px; color: #C9C5D8">No sign-up to start · Private · Courses 25% off with NEWYEAR26</p>
+</div>
+</section>
+</div>
+
+<footer style="background: #1C1B29; color: #D9D6CE">
+<div style="max-width: 1280px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: center">
+<span style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: 5px; color: #FFFFFF; margin-right: auto">SELF</span>
+<a href="#privacy" style="color: #D9D6CE; text-decoration: none; font-size: 14px; padding: 8px 0">Privacy</a>
+<a href="#terms" style="color: #D9D6CE; text-decoration: none; font-size: 14px; padding: 8px 0">Terms</a>
+<a href="#refunds" style="color: #D9D6CE; text-decoration: none; font-size: 14px; padding: 8px 0">Refunds</a>
+<span style="font-size: 13px; color: #A8A59D">© 2026 SELF · [City], India</span>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2400}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.copyCode = () => { try { if (navigator.clipboard) navigator.clipboard.writeText('NEWYEAR26'); } catch (e) {} this.setState({ copied: true }); clearTimeout(this.ct); this.ct = setTimeout(() => this.setState({ copied: false }), 2000); };
+    this.state = { stage: null, role: null, goal: null, sel: {}, phase: 'chat', faq: 0, faqTab: 'students', cOpen: false, cDone: false, cMob: '', cTime: '', cAgree: false, cErr: '' };
+    this.railRef = (el) => { this.rail = el; };
+    this.coachRef = (el) => {
+      if (!el || el === this.coachEl) return;
+      this.coachEl = el;
+      try {
+        if (!('IntersectionObserver' in window)) return;
+        el.classList.add('armed');
+        const io = new IntersectionObserver((es) => { es.forEach((x) => { if (x.isIntersecting) { el.classList.add('in'); io.disconnect(); } }); }, { threshold: 0.25 });
+        io.observe(el);
+        setTimeout(() => el.classList.add('in'), 4000);
+      } catch (e) { el.classList.add('in'); }
+    };
+    this.prev = () => { if (this.rail) this.rail.scrollBy({ left: -360, behavior: 'smooth' }); };
+    this.next = () => { if (this.rail) this.rail.scrollBy({ left: 360, behavior: 'smooth' }); };
+  }
+  shopVals() {
+    const cats = [
+      { id: 'all', label: 'All' },
+      { id: 'gd', label: 'Group Discussion', bg: '#FDE2D6' },
+      { id: 'li', label: 'LinkedIn', bg: '#E7E4FD' },
+      { id: 'comm', label: 'Communication', bg: '#F1EAFB' },
+      { id: 'lead', label: 'Leadership', bg: '#FCEBDD' }
+    ];
+    const catOf = {}; cats.forEach((c) => { catOf[c.id] = c; });
+    const list = [
+      { id: 'gd1', cat: 'gd', title: 'Group Discussion Mastery', desc: 'Open strong, build on points and summarise like a leader, with real GD recordings broken down.', meta: 'Video course · Watch anytime · Certificate', stage: 'College · Career' },
+      { id: 'gd2', cat: 'gd', title: 'GD Basics for School Students', desc: 'Speak up in class debates and discussions without freezing.', meta: 'Video course · Watch anytime · Certificate', stage: 'School' },
+      { id: 'li1', cat: 'li', title: 'LinkedIn Profile Builder', desc: 'A headline, About and projects section recruiters stop for — with templates and examples.', meta: 'Video course · Watch anytime · Certificate', stage: 'College · Career' },
+      { id: 'li2', cat: 'li', title: 'LinkedIn for Your First Job Hunt', desc: 'Network, message recruiters and post with confidence.', meta: 'Video course · Watch anytime · Certificate', stage: 'Early career' },
+      { id: 'cm1', cat: 'comm', title: 'Speak with Confidence', desc: 'Clear speaking for class, stage and everyday conversations.', meta: 'Video course · Watch anytime · Certificate', stage: 'School · College' },
+      { id: 'cm2', cat: 'comm', title: 'Interview & Presentation Skills', desc: 'Answer tough questions and present ideas that land.', meta: 'Video course · Watch anytime · Certificate', stage: 'College · Career' },
+      { id: 'ld1', cat: 'lead', title: 'Leadership Foundations', desc: 'Run a team project, make decisions and give feedback.', meta: 'Video course · Watch anytime · Certificate', stage: 'All stages' },
+      { id: 'ld2', cat: 'lead', title: 'Club & Student Council Leadership', desc: 'Lead events, committees and peers at school or college.', meta: 'Video course · Watch anytime · Certificate', stage: 'School · College' }
+    ];
+    const LES = {'gd1': [14, 3.5], 'gd2': [9, 2], 'li1': [11, 2.5], 'li2': [8, 1.5], 'cm1': [12, 3], 'cm2': [15, 4], 'ld1': [13, 3.5], 'ld2': [10, 2.5]};
+    const fmt = (n) => '₹' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const off = (n) => Math.round(n * 0.75);
+    const P = { gd1: 1499, gd2: 750, li1: 999, li2: 799, cm1: 899, cm2: 1299, ld1: 1500, ld2: 1199 };
+    const BUYS = { gd1: 640, gd2: 120, li1: 310, li2: 85, cm1: 520, cm2: 260, ld1: 180, ld2: 60 };
+    const tierOf = (n) => {
+      const base = 'display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 999px; ';
+      if (n >= 500) return { tier: true, tierLabel: 'Blockbuster', tierStyle: base + 'background: #1C1B29; color: #FFC94A;' };
+      if (n >= 250) return { tier: true, tierLabel: 'Super hit', tierStyle: base + 'background: #5146E6; color: #FFFFFF;' };
+      if (n >= 100) return { tier: true, tierLabel: 'Hit', tierStyle: base + 'background: #FFE7DC; color: #A3412A;' };
+      return { tier: false, tierLabel: '', tierStyle: '' };
+    };
+    const IMG = { gd: 'assets/c7cfea20ac4bf57b5496a04bac9e424c.svg', li: 'assets/cd9f64376de849385a7f82954408adf1.svg', comm: 'assets/6139a1636739866436b34ac4adc83866.svg', lead: 'assets/43e918efecff1ddb12b46dfdc5b95dde.svg' };
+    const s = this.state;
+    const tab = s.shopCat || 'all';
+    const cart = s.cart || {};
+    const phase = s.shopPhase || 'browse';
+    const tabStyle = 'font: inherit; font-weight: 600; font-size: 14px; padding: 10px 16px; border-radius: 999px; min-height: 44px; cursor: pointer; ';
+    const shopTabs = cats.map((c) => ({
+      label: c.label, pressed: c.id === tab ? 'true' : 'false',
+      pick: () => this.setState({ shopCat: c.id }),
+      style: tabStyle + (c.id === tab ? 'background: #5146E6; color: #FFFFFF; border: 1.5px solid #5146E6;' : 'background: #FFFFFF; color: #1C1B29; border: 1.5px solid #D9D2E4;')
+    }));
+    const addBase = 'font: inherit; font-weight: 700; font-size: 14px; border-radius: 999px; padding: 11px 14px; min-height: 44px; cursor: pointer; ';
+    const shopItems = list.filter((c) => tab === 'all' || c.cat === tab).map((c) => {
+      const on = !!cart[c.id];
+      return Object.assign({}, c, {
+        catLabel: catOf[c.cat].label,
+        href: 'V5-Course-' + c.id + '.dc.html',
+        open: () => { window.location.href = 'V5-Course-' + c.id + '.dc.html'; },
+        img: IMG[c.cat],
+        ...tierOf(BUYS[c.id]),
+        buysText: BUYS[c.id] + ' purchases',
+        lessonsText: LES[c.id][0] + ' lessons · ' + LES[c.id][1] + ' hrs',
+        mrpText: fmt(P[c.id]),
+        priceText: fmt(off(P[c.id])),
+        band: 'background: ' + catOf[c.cat].bg + '; position: relative; isolation: isolate; overflow: hidden; height: 168px; box-sizing: border-box; padding: 12px 14px; display: flex; flex-direction: column; justify-content: space-between; color: #1C1B29;',
+        pressed: on ? 'true' : 'false',
+        addLabel: on ? '✓ Added' : '+ Add',
+        addStyle: addBase + (on ? 'background: #ECE9FF; color: #4338CA; border: 1.5px solid #C9C2FF;' : 'background: #FFFFFF; color: #1C1B29; border: 1.5px solid #D9D2E4;'),
+        toggle: () => { const n = Object.assign({}, this.state.cart || {}); n[c.id] = !n[c.id]; this.setState({ cart: n, shopPhase: 'browse' }); },
+        buy: () => { const n = Object.assign({}, this.state.cart || {}); n[c.id] = true; this.setState({ cart: n, shopPhase: 'checkout' }); }
+      });
+    });
+    const inCart = list.filter((c) => cart[c.id]);
+    const cartItems = inCart.map((c) => ({ title: c.title, price: fmt(P[c.id]) }));
+    const n = cartItems.length;
+    const sub = inCart.reduce((a, c) => a + P[c.id], 0);
+    const net = inCart.reduce((a, c) => a + off(P[c.id]), 0);
+    return {
+      shopTabs, shopItems, cartItems,
+      shopDisc: fmt(sub - net),
+      shopTotal: fmt(net),
+      showBar: phase === 'browse' && n > 0,
+      showCheckout: phase === 'checkout' && n > 0,
+      showShopDone: phase === 'done',
+      cartText: n + (n === 1 ? ' course' : ' courses') + ' in cart',
+      doneList: (s.bought || []).join(', '),
+      goCheckout: () => this.setState({ shopPhase: 'checkout' }),
+      backToShop: () => this.setState({ shopPhase: 'browse' }),
+      pay: () => this.setState({ shopPhase: 'done', bought: cartItems.map((c) => c.title), cart: {} }),
+      shopReset: () => this.setState({ shopPhase: 'browse', bought: [] })
+    };
+  }
+  renderVals() {
+    const fmt = (n) => '₹' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const off = (n) => Math.round(n * 0.75);
+    const PR = { gd: 1499, gdschool: 750, li: 999, comm: 899, interview: 1299, lead: 1500, pack: 4897 };
+    const s = this.state;
+    const Q = {
+      stage: { q: "Hi, I'm Meera, your AI career guide. I'll ask a few questions, build your career report and suggest courses that fit you. First, where are you right now?",
+        opts: [['school', 'In school (15–17)'], ['college', 'In college (18–21)'], ['early', 'Working or job hunting (22–25)']] },
+      role: { q: 'Picture a group project. Which role do you naturally take?',
+        opts: [['organise', 'I organise everyone'], ['ideas', 'I come up with ideas'], ['research', 'I do the research'], ['quiet', 'I stay quiet but deliver']] },
+      goal: { q: 'Last one for now: what do you want most in the next six months?',
+        opts: [['gd', 'Crack GDs & interviews'], ['li', 'Get noticed on LinkedIn'], ['comm', 'Speak with confidence'], ['lead', 'Lead a team or club']] }
+    };
+    const label = (k, v) => (Q[k].opts.find((o) => o[0] === v) || [])[1];
+    const C = {
+      gd: { title: 'Group Discussion Mastery', meta: 'Video course · 14 lessons · 3.5 hrs' },
+      gdschool: { title: 'GD Basics for School Students', meta: 'Video course · 9 lessons · 2 hrs' },
+      li: { title: 'LinkedIn Profile Builder', meta: 'Video course · 11 lessons · 2.5 hrs' },
+      comm: { title: 'Speak with Confidence', meta: 'Video course · 12 lessons · 3 hrs' },
+      interview: { title: 'Interview & Presentation Skills', meta: 'Video course · 15 lessons · 4 hrs' },
+      lead: { title: 'Leadership Foundations', meta: 'Video course · 13 lessons · 3.5 hrs' },
+      pack: { title: 'Leader Pack', meta: 'All 4 video courses + detailed report · Best value' }
+    };
+    const R = {
+      organise: { type: 'The Organiser', tagline: 'You bring people together and get things moving.', strengths: ['Taking charge', 'Planning', 'Team energy'], second: 'lead' },
+      ideas: { type: 'The Visionary', tagline: 'You see possibilities others miss.', strengths: ['Creativity', 'Big-picture thinking', 'Curiosity'], second: 'comm' },
+      research: { type: 'The Analyst', tagline: 'You dig deep and decide with facts.', strengths: ['Problem solving', 'Focus', 'Reliability'], second: 'interview' },
+      quiet: { type: 'The Steady Achiever', tagline: 'You deliver quietly and consistently.', strengths: ['Dependability', 'Listening', 'Follow-through'], second: 'comm' }
+    };
+    const G = {
+      gd: { code: 'E-S-C', codeText: 'Enterprising · Social · Conventional', grow: 'Holding the floor in group settings' },
+      li: { code: 'E-C-A', codeText: 'Enterprising · Conventional · Artistic', grow: 'Showing your work to the world' },
+      comm: { code: 'S-A-E', codeText: 'Social · Artistic · Enterprising', grow: 'Speaking up with confidence' },
+      lead: { code: 'E-S-I', codeText: 'Enterprising · Social · Investigative', grow: 'Leading and motivating peers' }
+    };
+    const msgs = [];
+    const ai = (text) => msgs.push({ isAi: true, text });
+    const me = (text) => msgs.push({ isMe: true, text });
+    let replies = [];
+    const chip = 'font: inherit; font-size: 15px; font-weight: 600; border-radius: 999px; padding: 11px 16px; min-height: 44px; cursor: pointer; ';
+    const outline = chip + 'color: #4338CA; background: #FFFFFF; border: 1.5px solid #C9C2FF;';
+    const solid = chip + 'color: #FFFFFF; background: #5146E6; border: 1.5px solid #5146E6;';
+    const ask = (k) => {
+      ai(Q[k].q);
+      replies = Q[k].opts.map((o) => ({ label: o[1], style: outline, pick: () => {
+        const patch = {}; patch[k] = o[0];
+        if (k === 'goal') { patch.phase = 'plan'; patch.sel = { primary: true, secondary: true }; }
+        this.setState(patch);
+      } }));
+    };
+
+    let plan = [];
+    let chosen = [];
+    let chatDisc = '₹0';
+    let chatTotal = '₹0';
+    const minor = s.stage === 'school';
+    ask('stage');
+    if (s.stage) { me(label('stage', s.stage)); ask('role'); }
+    if (s.role) { me(label('role', s.role)); ask('goal'); }
+    if (s.goal) {
+      me(label('goal', s.goal));
+      replies = [];
+      ai("Thanks! Here's what I learned about you.");
+      msgs.push({ isReport: true });
+      let primary = s.goal === 'gd' && minor ? 'gdschool' : s.goal;
+      let second = R[s.role].second;
+      if (second === primary) second = primary === 'li' ? 'comm' : 'li';
+      ai('Based on your report, this is the plan I recommend. Tap to keep or remove anything.');
+      const items = [
+        { id: 'primary', key: primary, tag: 'Top pick', why: 'Matches your goal: ' + label('goal', s.goal).toLowerCase() },
+        { id: 'secondary', key: second, tag: 'Builds your strength', why: 'Plays to your style as ' + R[s.role].type },
+        { id: 'pack', key: 'pack', tag: 'Save more', why: 'Everything in one go, if you want the full path' }
+      ];
+      plan = items.map((it) => {
+        const on = !!s.sel[it.id];
+        return {
+          title: C[it.key].title, meta: C[it.key].meta, why: it.why, tag: it.tag, price: fmt(off(PR[it.key])), mrp: fmt(PR[it.key]), list: PR[it.key], net: off(PR[it.key]), on,
+          pressed: on ? 'true' : 'false',
+          toggleLabel: (on ? 'Remove ' : 'Add ') + C[it.key].title,
+          toggle: () => { const sel = Object.assign({}, this.state.sel); sel[it.id] = !sel[it.id]; this.setState({ sel }); },
+          cardStyle: 'display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 16px; border-radius: 16px; background: ' + (on ? '#F6F4FF' : '#FFFFFF') + '; border: 1.5px solid ' + (on ? '#5146E6' : '#ECE6EE') + ';',
+          boxStyle: 'width: 44px; height: 44px; flex: none; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; background: ' + (on ? '#5146E6' : '#FFFFFF') + '; border: 2px solid ' + (on ? '#5146E6' : '#C9C2FF') + ';',
+          tagStyle: 'font-size: 12px; font-weight: 700; padding: 4px 8px; border-radius: 8px; background: ' + (it.id === 'pack' ? '#FFF1EA; color: #A3412A' : '#ECE9FF; color: #4338CA') + ';'
+        };
+      });
+      const picked = plan.filter((p) => p.on);
+      chosen = picked.map((p) => ({ title: p.title, price: p.mrp }));
+      const sub = picked.reduce((a, p) => a + p.list, 0);
+      const net = picked.reduce((a, p) => a + p.net, 0);
+      chatDisc = fmt(sub - net);
+      chatTotal = fmt(net);
+      msgs.push({ isPlan: true });
+      if (s.phase === 'plan') {
+        replies = chosen.length
+          ? [{ label: 'Checkout (' + chosen.length + ')', style: solid, pick: () => this.setState({ phase: 'checkout' }) },
+             { label: 'Why these courses?', style: outline, pick: () => this.setState({ phase: 'plan', why: true }) }]
+          : [{ label: 'Pick at least one course', style: outline, pick: () => {} }];
+        if (s.why) ai('I matched your top goal first, then added a course that builds on how you naturally work. You can swap anything — your report stays free either way.');
+      }
+      if (s.phase === 'checkout' || s.phase === 'done') {
+        me('Checkout');
+        ai(minor ? "Here's your order. One more step: a parent or guardian approves it." : "Here's your order. Your discount is already applied.");
+        msgs.push({ isCheckout: true });
+        if (s.phase === 'checkout') {
+          replies = minor
+            ? [{ label: 'Send to parent for approval', style: solid, pick: () => this.setState({ phase: 'done' }) }, { label: 'Edit plan', style: outline, pick: () => this.setState({ phase: 'plan' }) }]
+            : [{ label: 'Pay with UPI', style: solid, pick: () => this.setState({ phase: 'done' }) }, { label: 'Pay by card', style: outline, pick: () => this.setState({ phase: 'done' }) }, { label: 'Edit plan', style: outline, pick: () => this.setState({ phase: 'plan' }) }];
+        }
+      }
+      if (s.phase === 'done') {
+        me(minor ? 'Send to parent for approval' : 'Pay');
+        msgs.push({ isDone: true });
+        replies = [];
+      }
+    }
+    const report = s.role && s.goal ? Object.assign({}, R[s.role], G[s.goal]) : { type: '', tagline: '', strengths: [], code: '', codeText: '', grow: '' };
+    const phaseIdx = !s.role ? 0 : (!s.goal ? 1 : 2);
+    const stepNames = ['Chat', 'Quizzes', 'Report'];
+    const steps = stepNames.map((n, i) => {
+      const active = i === phaseIdx || (phaseIdx === 2 && i === 1 && false);
+      const done = i < phaseIdx;
+      return {
+        label: (done ? '✓ ' : (i + 1) + '. ') + n,
+        style: 'font-size: 13px; font-weight: 700; padding: 7px 12px; border-radius: 999px; ' + (active ? 'background: #5146E6; color: #FFFFFF;' : done ? 'background: #ECE9FF; color: #4338CA;' : 'background: #F3EEF3; color: #5C5A63;')
+      };
+    });
+    const tag = (bg, fg) => 'align-self: flex-start; font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 8px; background: ' + bg + '; color: ' + fg + ';';
+    const photo = (bg) => 'position: relative; isolation: isolate; overflow: hidden; height: 200px; background: ' + bg + '; display: flex; align-items: center; justify-content: center;';
+    const mentors = [
+      { course: 'Group Discussion', role: '[Role — e.g. Placement trainer]', photoStyle: photo('#FDE2D6'), tagStyle: tag('#FDE2D6', '#8A3A22'), wins: ['[Achievement — e.g. ran GD rounds at a top campus recruiter]', '[Students placed / batches trained]', '[Certification or award]'] },
+      { course: 'LinkedIn', role: '[Role — e.g. Tech recruiter]', photoStyle: photo('#E7E4FD'), tagStyle: tag('#E7E4FD', '#3730A3'), wins: ['[Achievement — e.g. Ex-recruiter at [Company]]', '[Profiles reviewed / followers]', '[LinkedIn Top Voice or similar]'] },
+      { course: 'Communication', role: '[Role — e.g. Public speaking coach]', photoStyle: photo('#F1EAFB'), tagStyle: tag('#F1EAFB', '#5B2A86'), wins: ['[Achievement — e.g. TEDx speaker]', '[Workshops delivered at schools/colleges]', '[Award or certification]'] },
+      { course: 'Leadership', role: '[Role — e.g. Engineering manager]', photoStyle: photo('#FCEBDD'), tagStyle: tag('#FCEBDD', '#8A4513'), wins: ['[Achievement — e.g. led teams of [N] at [Company]]', '[Programme founded or scaled]', '[Recognition or award]'] }
+    ];
+    const MIMG = ['assets/bef86b69f3ad8980454c600cbbb69fdd.svg', 'assets/c9f194197d9e7fe366f023767b4a5118.svg', 'assets/d6003ff1153d0977d41a870d1bf07ea6.svg', 'assets/b032d707fdd142ba028da1265370dc83.svg'];
+    const MNAME = ['Rohan Malhotra', 'Priya Menon', 'Neha Bhatia', 'Vikram Rao'];
+    const STORIES = [
+      { name: 'Ishita P.', role: 'Class 12 · Jaipur', before: 'Engineering?', after: 'B.Des, UX', quote: 'Everyone said engineering. The report showed me why design fits me — and gave me words to explain it to my parents.', photo: false, bg: '#EDE9FF', accent: '#5146E6', skin: '#C68B67', shirt: '#5B4BEA', hair: 'M130 92c-4-40 18-62 42-62s44 18 38 62c-4-18-12-30-40-30s-34 12-40 30zM130 92c-2 24 2 40 8 52l-6 2c-8-14-8-36-2-54z' },
+      { name: 'Rahul M.', role: '2nd-year B.Com · Delhi', before: 'No idea', after: 'Data analytics', quote: 'It felt like chatting with a senior who gets it, not filling a boring form. Took less time than one reel-scrolling session.', photo: false, bg: '#FDE7DC', accent: '#B4532F' },
+      { name: 'Fatima S.', role: 'Class 10 · Lucknow', before: 'Science or Commerce?', after: 'Commerce', quote: 'I finally know which subjects match how I think. My parents read the report too — no more arguments.', photo: false, bg: '#F1EAFB', accent: '#7A4FD0', skin: '#A86F4F', shirt: '#4C3DD8', hair: 'M126 96c-6-44 16-68 44-68s48 22 44 68c-6-20-16-34-44-34s-38 14-44 34zM126 96c0 30 4 50 10 64l-8 2c-8-18-10-42-2-66zM214 96c0 30-4 50-10 64l8 2c8-18 10-42 2-66z' },
+      { name: 'Aditya K.', role: 'Final-year B.Tech · Pune', before: 'Freezing in interviews', after: '2 offers', quote: 'The interview course made me practise out loud. By my third interview I actually enjoyed it.', photo: false, bg: '#EDE9FF', accent: '#5146E6', skin: '#B87A55', shirt: '#5B4BEA', hair: 'M132 84c0-30 18-46 38-46s38 14 38 46c-6-14-18-20-38-20s-32 6-38 20z' },
+      { name: 'Neha J.', role: 'Class 11 · Bhopal', before: 'Shy in class', after: 'Debate team', quote: 'The public speaking lessons are short enough to do before school. I joined the debate team last month.', photo: false, bg: '#FDE7DC', accent: '#B4532F' }
+    ];
+    const stories = STORIES.map((x) => ({
+      ...x,
+      hasPhoto: !!x.photo, noPhoto: !x.photo,
+      alt: 'Photo of ' + x.name,
+      initials: x.name.split(' ').map((p) => p[0]).join('').replace('.', '')
+    }));
+
+    const FAQ = {
+      students: [
+        { q: 'Is the career discovery really free?', a: 'Yes, during our launch. The chat with Meera, the quick assessment and your full report cost ₹0 right now. It becomes a paid feature later, so this is the best time to try it.' },
+        { q: 'I’m in Class 9. Is this for me?', a: 'Yes. Meera adapts her questions to where you are — from picking a stream to picking a first job.' },
+        { q: 'Can my parents or school see my answers?', a: 'No. Your answers are private by default. You decide if and when to share your report.' },
+        { q: 'How does the NEWYEAR26 code work?', a: 'Enter NEWYEAR26 at checkout to get 25% off any course. The code works until 15 January.' },
+        { q: 'Will there be live classes or mentoring?', a: 'We’re planning both. Tap “I’m interested” on the page and we’ll tell you first when they launch.' }
+      ],
+      parents: [
+        { q: 'What does it cost?', a: 'Career discovery is free during our launch. Courses are paid individually, and you can preview the first lesson of any course before buying.' },
+        { q: 'Who designed the assessments?', a: 'The quizzes were built with career psychologists and are based on well-established career-interest research. See “How we score” for details.' },
+        { q: 'Is my child’s data safe?', a: 'Answers are private by default and are never shared without your child’s permission.' },
+        { q: 'Can I see my child’s report?', a: 'Yes — once your child shares it with you. You’ll see the same strengths, matches and reasons they do.' },
+        { q: 'Is this a replacement for a counsellor?', a: 'It’s a strong starting point. The report gives you both a shared, evidence-based picture to discuss with teachers or a counsellor.' }
+      ]
+    };
+    const faqTabs = [['students', 'For students'], ['parents', '']].map(([id, label]) => {
+      const on = s.faqTab === id;
+      return { label, cls: 'faq-tab' + (on ? ' on' : ''), pressed: on ? 'true' : 'false', pick: () => this.setState({ faqTab: id, faq: 0 }) };
+    });
+    const faqs = FAQ[s.faqTab].map((f, i) => {
+      const open = s.faq === i;
+      return { q: f.q, a: f.a, n: '0' + (i + 1), exp: open ? 'true' : 'false', cls: 'faq-item' + (open ? ' open' : ''), toggle: () => this.setState({ faq: open ? -1 : i }) };
+    });
+
+
+    mentors.forEach((m, i) => { m.img = MIMG[i]; m.name = MNAME[i]; });
+    // career coach call request
+    const cs = this.state;
+    const cMob = cs.cMob || '';
+    const cErrOf = (v) => (!v ? 'Please enter your mobile number.' : v.length < 10 ? 'Mobile number should be 10 digits.' : !/^[6-9]/.test(v) ? 'Indian mobile numbers start with 6, 7, 8 or 9.' : /^(\d)\1{9}$/.test(v) ? 'Please enter a valid mobile number.' : '');
+    const CSL = [['Morning', '9 am – 12 pm'], ['Afternoon', '12 – 4 pm'], ['Evening', '4 – 8 pm']];
+    const cSlot = CSL.filter((x) => x[0] === cs.cTime)[0];
+    const coach = {
+      showBtn: !cs.cOpen && !cs.cDone, open: cs.cOpen && !cs.cDone, done: cs.cDone,
+      openForm: () => { this.setState({ cOpen: true, cErr: '' }); setTimeout(() => { const el = document.getElementById('cfmob'); if (el) el.focus(); }, 60); },
+      cancel: () => this.setState({ cOpen: false, cErr: '' }),
+      mobFmt: cMob.length > 5 ? cMob.slice(0, 5) + ' ' + cMob.slice(5) : cMob,
+      rowCls: 'cf-row' + (cs.cErr ? ' bad' : ''),
+      setMob: (e) => { let d = (e.target.value || '').replace(/\D/g, ''); if (d.length === 12 && d.indexOf('91') === 0) d = d.slice(2); else if (d.length === 11 && d[0] === '0') d = d.slice(1); this.setState({ cMob: d.slice(0, 10), cErr: '' }); },
+      slots: CSL.map((x) => ({ label: x[0] + ' · ' + x[1], on: cs.cTime === x[0] ? 'true' : 'false', cls: 'cf-slot' + (cs.cTime === x[0] ? ' on' : ''), pick: () => this.setState({ cTime: this.state.cTime === x[0] ? '' : x[0] }) })),
+      agree: cs.cAgree, toggle: (e) => this.setState({ cAgree: !!e.target.checked }), disabled: !cs.cAgree,
+      err: cs.cErr,
+      send: () => { const err = cErrOf(this.state.cMob || ''); if (err) { this.setState({ cErr: err }); return; } this.setState({ cDone: true, cOpen: false, cErr: '' }); },
+      num: '+91 ' + cMob.slice(0, 2) + '••••' + cMob.slice(-4),
+      when: cSlot ? 'in the ' + cSlot[0].toLowerCase() + ' (' + cSlot[1] + ')' : 'soon'
+    };
+    return {
+      coach, coachRef: this.coachRef, stories, faqs, faqTabs, railRef: this.railRef, prev: this.prev, next: this.next,
+      mentors,
+      copyCode: this.copyCode, copyLabel: this.state.copied ? 'Copied!' : 'Tap to copy',
+      ...this.shopVals(),
+      chatDisc, chatTotal,
+      msgs, replies, plan, chosen, report, steps, minor,
+      doneTitle: minor ? 'Sent for approval' : "You're enrolled!",
+      doneText: minor
+        ? "We've sent your plan to your parent or guardian. Once they approve, your video courses unlock in My Learning — start watching right away."
+        : "Your video courses are ready in My Learning. Watch anytime, on phone or laptop, at your own pace.",
+      restart: () => this.setState({ stage: null, role: null, goal: null, sel: {}, phase: 'chat', why: false })
+    };
+  }
+}
+</script>
+<script src="demo-shell.js" defer></script>
+</body>
+</html>

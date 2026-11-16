@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SELF — Design review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&amp;family=Manrope:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Manrope,system-ui,sans-serif;color:#1C1B29;background:#FBF8F5}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+header{padding:64px 0 40px;background:radial-gradient(700px 420px at 85% 0%,#E4DEFF 0%,rgba(228,222,255,0) 72%),radial-gradient(620px 380px at 10% 40%,#FDE0D3 0%,rgba(253,224,211,0) 72%);border-bottom:1px solid #ECE6EE}
+.logo{font:600 24px Outfit,sans-serif;letter-spacing:5px}
+h1{margin:18px 0 10px;font:400 clamp(32px,4.4vw,52px)/1.1 Outfit,sans-serif;letter-spacing:-1px}
+h1 em{font-style:normal;color:#5146E6}
+.lead{max-width:640px;margin:0;font-size:17px;line-height:1.6;color:#45434D}
+.btn{display:inline-flex;align-items:center;min-height:48px;margin-top:26px;padding:0 24px;border-radius:999px;background:#5146E6;color:#fff;font-weight:700;text-decoration:none}
+.btn:hover{background:#3B31C4}
+.btn:focus-visible,a.card:focus-visible{outline:2px solid #5146E6;outline-offset:3px}
+section{padding:40px 0 8px}
+h2{margin:0 0 6px;font:500 24px Outfit,sans-serif}
+.sub{margin:0 0 18px;font-size:14px;color:#5C5A63}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+a.card{display:block;padding:16px 18px;background:#fff;border:1px solid #ECE6EE;border-radius:16px;color:#1C1B29;text-decoration:none;font-weight:700;transition:border-color .2s,box-shadow .25s,transform .25s}
+a.card:hover{border-color:#C9C2FF;box-shadow:0 18px 40px -24px rgba(81,70,230,.35);transform:translateY(-2px)}
+a.card small{display:block;margin-top:4px;font-weight:500;font-size:13px;color:#5C5A63}
+.tips{margin:44px 0 0;padding:22px 24px;background:#fff;border:1px solid #ECE6EE;border-radius:20px;font-size:15px;line-height:1.6;color:#45434D}
+.tips b{color:#1C1B29}
+footer{padding:36px 0 60px;font-size:13px;color:#5C5A63}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<span class="logo">SELF</span>
+<h1>Website redesign, <em>clickable prototype.</em></h1>
+<p class="lead">Explore every page of the redesign. Navigation, forms and course flows work with sample content. Nothing is saved to a server.</p>
+<a class="btn" href="V5-Home.dc.html">Start at Home</a>
+</div></header>
+<main class="wrap">
+<section><h2>Main pages</h2><p class="sub">The core journey.</p>
+<div class="grid">
+<a class="card" href="V5-Home.dc.html">Home<small>Landing page</small></a>
+<a class="card" href="V5-Discover.dc.html">Career Discovery<small>Chat with Meera and assessments</small></a>
+<a class="card" href="V5-Courses.dc.html">Courses<small>Filter and search the catalogue</small></a>
+<a class="card" href="V5-Learn.dc.html">My Learning<small>Live: reflects what you buy and finish</small></a>
+<a class="card" href="V5-Login.dc.html">Log in<small>Any valid number and 6-digit code works</small></a>
+<a class="card" href="V5-Method.dc.html">How we score<small>Transparent scoring</small></a>
+</div></section>
+<section><h2>Course pages</h2><p class="sub">Eight courses across four tracks.</p>
+<div class="grid">
+<a class="card" href="V5-Course-gd1.dc.html">Group Discussion Mastery<small>Group Discussion</small></a>
+<a class="card" href="V5-Course-gd2.dc.html">GD Basics for School Students<small>Group Discussion</small></a>
+<a class="card" href="V5-Course-li1.dc.html">LinkedIn Profile Builder<small>LinkedIn</small></a>
+<a class="card" href="V5-Course-li2.dc.html">LinkedIn for Your First Job Hunt<small>LinkedIn</small></a>
+<a class="card" href="V5-Course-cm1.dc.html">Speak with Confidence<small>Communication</small></a>
+<a class="card" href="V5-Course-cm2.dc.html">Interview &amp; Presentation Skills<small>Communication</small></a>
+<a class="card" href="V5-Course-ld1.dc.html">Leadership Foundations<small>Leadership</small></a>
+<a class="card" href="V5-Course-ld2.dc.html">Club &amp; Student Council Leadership<small>Leadership</small></a>
+</div></section>
+<section><h2>My Learning states</h2><p class="sub">Fixed snapshots to compare each state side by side.</p>
+<div class="grid">
+<a class="card" href="V5-Learn-s1.dc.html">1 · Purchased, not started</a>
+<a class="card" href="V5-Learn-s2.dc.html">2 · One course ongoing</a>
+<a class="card" href="V5-Learn-s3.dc.html">3 · One ongoing + one not started</a>
+<a class="card" href="V5-Learn-s4.dc.html">4 · One completed + one ongoing</a>
+<a class="card" href="V5-Learn-s5.dc.html">5 · Both completed</a>
+<a class="card" href="V5-Learn-s6.dc.html">6 · No courses (empty state)</a>
+<a class="card" href="V5-Learn-s7.dc.html">7 · Multiple purchased, none started</a>
+</div></section>
+<div class="tips"><b>Tips.</b> The <b>Design review</b> button (bottom right, on every page) opens this page list from anywhere. Use <b>Reset demo data</b> there to clear your login, purchases and progress and start fresh.</div>
+</main>
+<footer><div class="wrap">Design prototype with sample content. © 2026 SELF.</div></footer>
+</body>
+</html>

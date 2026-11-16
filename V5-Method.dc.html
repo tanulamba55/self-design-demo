@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SELF — How we score</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FBF8F5}
+a{color:#5146E6}a:hover{color:#3B31C4}
+.s5{font-family:'Manrope',system-ui,sans-serif;color:#1C1B29;background:#FBF8F5;width:100%;min-width:0}
+.s5 *{box-sizing:border-box}
+.s5 :focus-visible{outline:2px solid #5146E6;outline-offset:3px;border-radius:10px}
+.s5 button{font-family:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.wrap-l{max-width:1180px;margin:0 auto;padding:0 24px}
+.wrap-m{max-width:1120px;margin:0 auto;padding:0 24px}
+.out{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:18px 24px;margin-bottom:28px}
+.eyebrow{margin:0;font-size:13px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#5146E6}
+.h2{margin:8px 0 0;font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(30px,3.8vw,46px);letter-spacing:-1px;line-height:1.1}
+.h2c{margin:0 0 28px;font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,42px);letter-spacing:-1px;text-align:center}
+.lead{margin:10px 0 0;font-size:16px;line-height:1.6;color:#45434D}
+.muted{color:#5C5A63}
+.o{font-family:'Outfit',sans-serif}
+/* buttons */
+.btn-p,.btn-o{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:700;font-size:16px;border-radius:999px;text-decoration:none;cursor:pointer;min-height:48px;transition:background-color .2s,border-color .2s,color .2s,box-shadow .2s,transform .2s}
+.btn-p{background:#5146E6;color:#fff;border:1.5px solid #5146E6;padding:14px 22px}
+.btn-p:hover{background:#3B31C4;border-color:#3B31C4;color:#fff}
+.btn-o{background:#fff;color:#1C1B29;border:1.5px solid #D9D2E4;padding:13px 21px}
+.btn-o:hover{border-color:#5146E6;color:#1C1B29}
+.btn-sm{font-size:14px;padding:12px 16px;min-height:44px}
+.btn-p[disabled],.btn-o[disabled]{opacity:.45;cursor:not-allowed}
+.link-b{font:inherit;font-size:14px;font-weight:600;color:#5146E6;background:none;border:0;padding:10px 0;cursor:pointer;min-height:44px}
+.link-b:hover{color:#3B31C4}
+/* chips / tabs */
+.tab{font:inherit;font-weight:600;font-size:14px;padding:10px 16px;border-radius:999px;min-height:44px;cursor:pointer;background:#fff;color:#1C1B29;border:1.5px solid #D9D2E4;transition:background-color .2s,border-color .2s,color .2s}
+.tab:hover{border-color:#5146E6}
+.tab.on{background:#5146E6;color:#fff;border-color:#5146E6}
+.qr{font:inherit;font-size:15px;font-weight:600;border-radius:999px;padding:11px 16px;min-height:44px;cursor:pointer;color:#4338CA;background:#fff;border:1.5px solid #C9C2FF;transition:background-color .2s,border-color .2s}
+.qr:hover{border-color:#5146E6;background:#F6F4FF}
+.qr.sol{color:#fff;background:#5146E6;border-color:#5146E6}
+.qr.sol:hover{background:#3B31C4;border-color:#3B31C4}
+.pill{display:inline-flex;align-items:center;gap:8px;background:#ECE9FF;color:#4338CA;font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px}
+.pill i{width:7px;height:7px;border-radius:50%;background:#5146E6;display:inline-block}
+.tag{font-size:12px;font-weight:700;padding:5px 9px;border-radius:8px;background:#ECE9FF;color:#4338CA;display:inline-block}
+/* cards */
+.card{background:#FBF8F5;border:1px solid #ECE6EE;border-radius:20px;transition:border-color .2s,box-shadow .25s,transform .25s}
+.card.w{background:#fff}
+.card.r22{border-radius:22px}
+.lift:hover{border-color:#C9C2FF;box-shadow:0 18px 40px -24px rgba(81,70,230,.35);transform:translateY(-2px)}
+.ccard{transition:border-color .2s,box-shadow .25s,transform .25s}
+.ccard:hover{border-color:#C9C2FF;box-shadow:0 18px 40px -24px rgba(81,70,230,.35);transform:translateY(-2px)}
+.ccard:hover .btn-p{background:#3B31C4;border-color:#3B31C4}
+.sec-w{background:#fff;border-top:1px solid #ECE6EE;border-bottom:1px solid #ECE6EE}
+.grid-a{display:grid;gap:18px}
+/* header */
+.hdr{background:#fff;border-bottom:1px solid #ECE6EE}
+.hdr-in{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1C1B29;margin-right:auto}
+.logo:hover{color:#1C1B29}
+.logo span{font-family:'Outfit',sans-serif;font-weight:600;font-size:24px;letter-spacing:5px}
+.nav{display:flex;flex-wrap:wrap;gap:4px 22px;font-size:15px;font-weight:600}
+.nav a{color:#1C1B29;text-decoration:none;padding:12px 0;transition:color .2s}
+.nav a:hover,.nav a.cur{color:#5146E6}
+/* offer bar */
+.offer{background:#2B2566;color:#fff}
+.offer-in{max-width:1280px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 12px;font-size:14px}
+.code{font:inherit;font-weight:700;font-size:13px;letter-spacing:1px;background:#FFC2AC;color:#1C1B29;border:0;border-radius:999px;padding:6px 12px;min-height:32px;cursor:pointer}
+.code:hover{background:#FFD3C3}
+/* footer */
+.ftr{background:#1C1B29;color:#D9D6CE}
+.ftr-in{max-width:1280px;margin:0 auto;padding:32px 24px;display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center}
+.ftr a{color:#D9D6CE;text-decoration:none;font-size:14px;padding:8px 0}
+.ftr a:hover{color:#fff}
+/* hero */
+.hero-bg{background:radial-gradient(700px 420px at 85% 0%,#E4DEFF 0%,rgba(228,222,255,0) 72%),radial-gradient(620px 380px at 10% 40%,#FDE0D3 0%,rgba(253,224,211,0) 72%)}
+/* course card band */
+.band{position:relative;isolation:isolate;overflow:hidden;height:168px;padding:12px 14px;display:flex;flex-direction:column;justify-content:space-between;color:#1C1B29}
+.band svg.art{position:absolute;right:-18px;bottom:-26px;width:170px;height:170px;opacity:.55;z-index:-1}
+/* FAQ */
+.faq{background:#fff;border:1px solid #ECE6EE;border-radius:20px;transition:border-color .2s,box-shadow .3s}
+.faq:hover{border-color:#C9C2FF}
+.faq.open{border-color:#5146E6}
+.faqb{width:100%;display:flex;align-items:center;gap:14px;cursor:pointer;background:none;border:0;font:inherit;text-align:left;padding:18px 20px;font-size:17px;font-weight:700;color:#1C1B29;min-height:44px}
+.chev{flex:none;width:34px;height:34px;border-radius:50%;background:#F3EEF3;color:#1C1B29;display:grid;place-items:center;transition:transform .3s,background-color .2s,color .2s}
+.open .chev{transform:rotate(180deg);background:#5146E6;color:#fff}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.open .faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden}
+.faq-a p{margin:0;padding:0 20px 20px;font-size:16px;line-height:1.6;color:#45434D}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 18px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start;flex:0 0 min(340px,86%)}
+.arrow{width:46px;height:46px;border-radius:50%;border:1.5px solid #D9D2E4;background:#fff;display:grid;place-items:center;cursor:pointer;color:#1C1B29;transition:border-color .2s}
+.arrow:hover{border-color:#5146E6}
+.bar{height:8px;border-radius:999px;background:#ECE9FF;overflow:hidden}
+.bar>i{display:block;height:100%;background:#5146E6;border-radius:999px;transition:width .6s}
+.inp{width:100%;min-width:0;font:inherit;font-size:15px;border:1.5px solid #ECE6EE;border-radius:14px;padding:13px 16px;background:#FBF8F5;color:#1C1B29;outline:none;transition:border-color .2s,box-shadow .2s}
+.inp:focus{border-color:#5146E6;box-shadow:0 0 0 4px rgba(81,70,230,.12)}
+@media (prefers-reduced-motion:reduce){.s5 *{transition:none !important;animation:none !important}}
+@media (max-width:640px){.hdr-in,.wrap,.wrap-l,.wrap-m,.offer-in,.ftr-in{padding-left:18px;padding-right:18px}.band{height:150px}}
+body{font-family:'Manrope',system-ui,sans-serif}
+h1,h2,h3,.heading,.o,.disp,.h3x{font-family:'Outfit',sans-serif}
+</style><style>
+.toc a{display:block;font-size:15px;font-weight:600;color:#45434D;text-decoration:none;padding:9px 14px;border-radius:12px;border-left:3px solid transparent;transition:color .2s,background-color .2s,border-color .2s}
+.toc a:hover{color:#5146E6;background:#F3F0FF}
+.toc a.on{color:#5146E6;background:#ECE9FF;border-left-color:#5146E6}
+.sec{padding:0 0 72px;scroll-margin-top:24px}
+.sec h2{margin:8px 0 22px;font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(28px,3.2vw,40px);letter-spacing:-1px;line-height:1.1}
+.sec h3{margin:36px 0 12px;font-family:'Outfit',sans-serif;font-weight:500;font-size:22px;letter-spacing:-.3px}
+.sec p{margin:0 0 16px;color:#45434D;font-size:17px;line-height:1.65;max-width:680px}
+.sec p b,.mcard b{font-weight:700;color:#1C1B29}
+.mcard{background:#fff;border:1px solid #ECE6EE;border-radius:20px;padding:24px 28px;margin:0 0 16px;max-width:760px;font-size:16px;color:#45434D;line-height:1.8}
+.mcard.hl{border-color:#C9C2FF;background:#F6F4FF}
+.rng{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:999px;outline-offset:8px;cursor:pointer;margin:0}
+.rng::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:2px solid #5146E6;box-shadow:0 4px 14px -4px rgba(81,70,230,.6);transition:transform .2s,box-shadow .2s}
+.rng::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid #5146E6;box-shadow:0 4px 14px -4px rgba(81,70,230,.6)}
+.rng:hover::-webkit-slider-thumb,.rng:active::-webkit-slider-thumb{transform:scale(1.15);box-shadow:0 0 0 8px rgba(81,70,230,.14)}
+.tbl{width:100%;border-collapse:collapse;font-size:15px;text-align:left;min-width:660px}
+.tbl th{padding:0 16px 12px 0;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#5C5A63}
+.tbl td{padding:15px 16px 15px 0;border-top:1px solid #ECE6EE;color:#45434D;vertical-align:top}
+.tbl td:first-child{font-weight:700;color:#1C1B29}
+.lim{margin:0 0 16px;padding-left:22px;color:#45434D;font-size:17px;line-height:1.75;max-width:680px}
+.lim li{margin-bottom:6px}
+html{scroll-behavior:smooth}
+@media (max-width:900px){.rail-m{position:static !important;max-width:none !important;flex-basis:100% !important}.toc{flex-direction:row !important;flex-wrap:wrap;gap:6px !important}.toc a{border-left:0;border:1.5px solid #D9D2E4;border-radius:999px;padding:8px 14px;background:#fff}.toc a.on{border-color:#5146E6}}
+</style>
+</helmet>
+<div class="s5">
+<header class="hdr"><div class="hdr-in"><a href="V5-Home.dc.html#top" class="logo"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24"><path d="M12 1.5C12.9 7.6 16.4 11.1 22.5 12 16.4 12.9 12.9 16.4 12 22.5 11.1 16.4 7.6 12.9 1.5 12 7.6 11.1 11.1 7.6 12 1.5Z" fill="#5146E6" transform="rotate(-12 12 12)"></path></svg><span>SELF</span></a><nav aria-label="Main" class="nav"><a href="V5-Discover.dc.html">Career Discovery</a><a href="V5-Courses.dc.html">Courses</a><a href="V5-Learn.dc.html">My Learning</a><a href="V5-Login.dc.html">Log in</a></nav></div></header>
+<main>
+<section class="hero-bg" style="border-bottom:1px solid #ECE6EE">
+<div class="wrap" style="padding-top:56px;padding-bottom:56px">
+<span class="pill"><i></i>How we score</span>
+<h1 class="h2" style="margin-top:18px;font-size:clamp(34px,4.6vw,56px);max-width:900px">A scoring method you can <span style="color:#5146E6">check yourself.</span></h1>
+<p class="lead" style="max-width:640px;font-size:18px">What we ask, how answers become numbers, and what the results can and cannot tell you.</p>
+</div>
+</section>
+<div class="wrap" style="padding-top:56px;padding-bottom:96px">
+<div style="display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,72px);align-items:flex-start">
+<nav aria-label="Contents" class="rail-m" style="flex:1 1 200px;max-width:240px;position:sticky;top:24px"><div class="toc" style="display:flex;flex-direction:column;gap:4px">
+<sc-for list="{{toc}}" as="t" hint-placeholder-count="7"><a href="{{t.href}}" class="{{t.cls}}" onClick="{{t.go}}">{{t.label}}</a></sc-for>
+</div></nav>
+<div style="flex:3 1 520px;min-width:0">
+<section id="what" class="sec"><p class="eyebrow">Overview</p><h2>What this is, and isn’t</h2>
+<p>SELF’s discovery is a guidance aid. It organises your own answers into a clear picture and shows which draft career profiles they sit closest to. It is not a diagnosis, a clinical test or a prediction of success.</p>
+<p>Nothing is hidden: every number below is produced by a formula you can follow, and your report shows the same workings for your own answers.</p></section>
+<section id="criteria" class="sec"><p class="eyebrow">Step 1</p><h2>Assessment criteria</h2>
+<div class="mcard"><b>Interests · 6 statements.</b> A six-type interest model used by career counsellors worldwide: Realistic, Investigative, Artistic, Social, Enterprising, Conventional, one statement each, rated 1–5 (not at all to very much).</div>
+<div class="mcard"><b>Aptitude · 3 questions.</b> One each on numerical, logical and verbal reasoning, each with one correct answer. Scored right or wrong, so no self-rating is involved.</div>
+<div class="mcard"><b>Work values · 1 choice.</b> From Creativity, Stability, Impact on people, Learning &amp; growth, Independence and Teamwork, you choose the two that matter most to you.</div>
+<p>The chat with Meera (your name and two quick questions) is for context only. It is <b>not scored</b>. In total the assessment is 10 questions.</p></section>
+<section id="scoring" class="sec"><p class="eyebrow">Step 2</p><h2>How the scores are calculated</h2>
+<div class="mcard"><b>Interest type score</b> = (your rating − 1) ÷ 4 × 100<br><b>Aptitude area score</b> = 100 if correct, otherwise 0<br><b>Value score</b> = 100 if you chose it, otherwise 0</div>
+<div class="mcard"><b>Interest fit</b> = 100 − average gap between your 6 interest scores and the career’s 6 emphasis levels<br><b>Aptitude fit</b> = Σ (career weight × your area score)<br><b>Values fit</b> = average of your value scores on the career’s 3 key values, so 0, 33, 67 or 100</div>
+<div class="mcard hl"><b>Overall fit = 0.5 × interest fit + 0.3 × aptitude fit + 0.2 × values fit</b><br>Interests carry the most weight because they are the strongest long-run signal for satisfaction. Aptitude and values adjust the ranking. The 50/30/20 split is a design choice, not a research constant, and it is shown so you can judge it.</div>
+<h3>Worked example</h3>
+<div class="mcard">An Artistic rating of 4 → (4 − 1) ÷ 4 × 100 = <b>75</b>.<br>Your interests [30, 60, 85, 40, 50, 20] vs a career’s [10, 55, 90, 50, 40, 30]: gaps 20, 5, 5, 10, 10, 10 → average 10 → interest fit <b>90</b>.<br>Weights .25 / .40 / .35 × your scores 100 / 0 / 100 = <b>60</b>.<br>You chose 2 of the career’s 3 key values → values fit <b>67</b>.<br>Overall = .5 × 90 + .3 × 60 + .2 × 67 = <b>76</b>.</div>
+<h3>Try it</h3>
+<p>Move the three sub-scores and watch the overall fit recompute.</p>
+<div class="card w r22" style="padding:clamp(22px,4vw,36px);max-width:760px">
+<sc-for list="{{calc.rows}}" as="r" hint-placeholder-count="3">
+<div style="margin-bottom:26px"><div style="display:flex;justify-content:space-between;font-size:15px;font-weight:600;margin-bottom:12px"><label for="{{r.id}}">{{r.label}}</label><span style="color:#5146E6;font-weight:700">{{r.v}}</span></div>
+<input id="{{r.id}}" class="rng" type="range" min="0" max="100" step="1" value="{{r.v}}" onChange="{{r.set}}" style="{{r.bg}}"></div>
+</sc-for>
+<div style="border-top:1px solid #ECE6EE;padding-top:22px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:15px;color:#45434D">{{calc.formula}}</span><span class="o" style="font-size:48px;font-weight:300;letter-spacing:-1.5px;color:#5146E6;line-height:1">{{calc.overall}}</span></div>
+</div></section>
+<section id="careers" class="sec"><p class="eyebrow">Step 3</p><h2>The career profiles</h2>
+<p>Each career is described by how strongly it draws on the six interest types, which reasoning areas it weights, and three key values. These are <b>draft profiles</b> written from general career descriptions, and need review by career experts and the client’s framework before being relied on.</p>
+<div class="card w" style="overflow-x:auto;max-width:920px;padding:24px 28px"><table class="tbl"><thead><tr><th>Career</th><th>Leading interests</th><th>Aptitude emphasis</th><th style="padding-right:0">Key values</th></tr></thead><tbody>
+<tr><td>UX / Product Designer</td><td>Artistic, Investigative</td><td>Verbal, Logical</td><td>Creativity, Impact, Learning</td></tr>
+<tr><td>Data Analyst</td><td>Investigative, Conventional</td><td>Numerical, Logical</td><td>Learning, Independence, Stability</td></tr>
+<tr><td>Product Manager</td><td>Enterprising, Investigative</td><td>Verbal, Logical</td><td>Impact, Learning, Teamwork</td></tr>
+<tr><td>Software Engineer</td><td>Investigative, Conventional</td><td>Logical, Numerical</td><td>Independence, Learning, Creativity</td></tr>
+<tr><td>Digital Marketer</td><td>Enterprising, Artistic</td><td>Verbal</td><td>Creativity, Learning, Teamwork</td></tr>
+<tr><td>Counselling &amp; Guidance</td><td>Social, Investigative</td><td>Verbal</td><td>Impact, Teamwork, Stability</td></tr>
+<tr><td>HR &amp; People Operations</td><td>Social, Enterprising</td><td>Verbal</td><td>Impact, Teamwork, Stability</td></tr>
+<tr><td>Finance Analyst</td><td>Conventional, Investigative</td><td>Numerical</td><td>Stability, Learning, Independence</td></tr>
+</tbody></table></div></section>
+<section id="reading" class="sec"><p class="eyebrow">Step 4</p><h2>How to read your results</h2>
+<div class="mcard"><b>Interest code</b> = your top three interest letters. Ties are ordered R, I, A, S, E, C, and the report says when that happens. With one rating per type, ties are likely.</div>
+<div class="mcard"><b>Close calls.</b> If the top three careers are within 5 points of each other, the report says so instead of implying a winner. Differences that small are well within what a 10-question assessment can resolve.</div>
+<div class="mcard"><b>No right or wrong labels.</b> Scores describe fit with a profile, never your worth or ability.</div></section>
+<section id="limits" class="sec"><p class="eyebrow">Limits</p><h2>Limits and fairness</h2>
+<ul class="lim"><li>Interests and values are self-reported, so they reflect how you see yourself today and can change.</li><li>This is a short form: one rating per interest type and one question per aptitude area. Ties between interest types are common, and aptitude is indicative at best, not a measurement of ability.</li><li>This is not a validated psychometric instrument, and we make no claims about predictive accuracy.</li><li>Career profiles are drafts pending expert review. Only 8 careers are covered, so a good fit elsewhere is possible.</li><li>The chat with Meera is not scored.</li></ul>
+<p>If your result feels off, trust that feeling and talk to a counsellor.</p></section>
+<section id="privacy" class="sec" style="padding-bottom:56px"><p class="eyebrow">Privacy</p><h2>Your data</h2>
+<p>In this prototype, answers stay in your browser session and nothing is sent anywhere or saved. Real accounts and storage are not built yet.</p></section>
+<div style="display:flex;flex-wrap:wrap;gap:12px"><a class="btn-p" href="V5-Discover.dc.html" style="color:#fff">Start career discovery</a><a class="btn-o" href="V5-Home.dc.html">Back to home</a></div>
+</div>
+</div>
+</div>
+</main>
+<footer class="ftr">
+<div class="ftr-in">
+<span class="o" style="font-weight:600;font-size:22px;letter-spacing:5px;color:#fff;margin-right:auto">SELF</span>
+<a href="V5-Home.dc.html#faq">FAQ</a>
+<a href="V5-Home.dc.html#privacy">Privacy</a>
+<a href="V5-Home.dc.html#terms">Terms</a>
+<a href="V5-Home.dc.html#refunds">Refunds</a>
+<span style="font-size:13px;color:#A8A59D">© 2026 SELF · India</span>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3600}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { n: 90, a: 60, v: 67, on: 'what' }; }
+  renderVals() {
+    const s = this.state;
+    const defs = [['n', 'Interest fit', 'cn'], ['a', 'Aptitude fit', 'ca'], ['v', 'Values fit', 'cv']];
+    const rows = defs.map((d) => ({ id: d[2], label: d[1], v: s[d[0]], bg: 'background:linear-gradient(90deg,#5146E6 ' + s[d[0]] + '%,#ECE9FF ' + s[d[0]] + '%)', set: (e) => this.setState({ [d[0]]: Number(e.target.value) }) }));
+    const overall = Math.round(0.5 * s.n + 0.3 * s.a + 0.2 * s.v);
+    const T = [['what', 'What this is'], ['criteria', 'Criteria'], ['scoring', 'Scoring'], ['careers', 'Career profiles'], ['reading', 'Reading results'], ['limits', 'Limits'], ['privacy', 'Privacy']];
+    const toc = T.map((t) => ({ href: '#' + t[0], label: t[1], cls: s.on === t[0] ? 'on' : '', go: () => this.setState({ on: t[0] }) }));
+    return { toc, calc: { rows, overall, formula: '0.5 × ' + s.n + ' + 0.3 × ' + s.a + ' + 0.2 × ' + s.v + ' =' } };
+  }
+}
+</script>
+<script src="demo-shell.js" defer></script>
+</body>
+</html>

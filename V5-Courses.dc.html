@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SELF — Courses</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FBF8F5}
+a{color:#5146E6}a:hover{color:#3B31C4}
+.s5{font-family:'Manrope',system-ui,sans-serif;color:#1C1B29;background:#FBF8F5;width:100%;min-width:0}
+.s5 *{box-sizing:border-box}
+.s5 :focus-visible{outline:2px solid #5146E6;outline-offset:3px;border-radius:10px}
+.s5 button{font-family:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.wrap-l{max-width:1180px;margin:0 auto;padding:0 24px}
+.wrap-m{max-width:1120px;margin:0 auto;padding:0 24px}
+.out{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:18px 24px;margin-bottom:28px}
+.eyebrow{margin:0;font-size:13px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#5146E6}
+.h2{margin:8px 0 0;font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(30px,3.8vw,46px);letter-spacing:-1px;line-height:1.1}
+.h2c{margin:0 0 28px;font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,42px);letter-spacing:-1px;text-align:center}
+.lead{margin:10px 0 0;font-size:16px;line-height:1.6;color:#45434D}
+.muted{color:#5C5A63}
+.o{font-family:'Outfit',sans-serif}
+/* buttons */
+.btn-p,.btn-o{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:700;font-size:16px;border-radius:999px;text-decoration:none;cursor:pointer;min-height:48px;transition:background-color .2s,border-color .2s,color .2s,box-shadow .2s,transform .2s}
+.btn-p{background:#5146E6;color:#fff;border:1.5px solid #5146E6;padding:14px 22px}
+.btn-p:hover{background:#3B31C4;border-color:#3B31C4;color:#fff}
+.btn-o{background:#fff;color:#1C1B29;border:1.5px solid #D9D2E4;padding:13px 21px}
+.btn-o:hover{border-color:#5146E6;color:#1C1B29}
+.btn-sm{font-size:14px;padding:12px 16px;min-height:44px}
+.btn-p[disabled],.btn-o[disabled]{opacity:.45;cursor:not-allowed}
+.link-b{font:inherit;font-size:14px;font-weight:600;color:#5146E6;background:none;border:0;padding:10px 0;cursor:pointer;min-height:44px}
+.link-b:hover{color:#3B31C4}
+/* chips / tabs */
+.tab{font:inherit;font-weight:600;font-size:14px;padding:10px 16px;border-radius:999px;min-height:44px;cursor:pointer;background:#fff;color:#1C1B29;border:1.5px solid #D9D2E4;transition:background-color .2s,border-color .2s,color .2s}
+.tab:hover{border-color:#5146E6}
+.tab.on{background:#5146E6;color:#fff;border-color:#5146E6}
+.qr{font:inherit;font-size:15px;font-weight:600;border-radius:999px;padding:11px 16px;min-height:44px;cursor:pointer;color:#4338CA;background:#fff;border:1.5px solid #C9C2FF;transition:background-color .2s,border-color .2s}
+.qr:hover{border-color:#5146E6;background:#F6F4FF}
+.qr.sol{color:#fff;background:#5146E6;border-color:#5146E6}
+.qr.sol:hover{background:#3B31C4;border-color:#3B31C4}
+.pill{display:inline-flex;align-items:center;gap:8px;background:#ECE9FF;color:#4338CA;font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px}
+.pill i{width:7px;height:7px;border-radius:50%;background:#5146E6;display:inline-block}
+.tag{font-size:12px;font-weight:700;padding:5px 9px;border-radius:8px;background:#ECE9FF;color:#4338CA;display:inline-block}
+/* cards */
+.card{background:#FBF8F5;border:1px solid #ECE6EE;border-radius:20px;transition:border-color .2s,box-shadow .25s,transform .25s}
+.card.w{background:#fff}
+.card.r22{border-radius:22px}
+.lift:hover{border-color:#C9C2FF;box-shadow:0 18px 40px -24px rgba(81,70,230,.35);transform:translateY(-2px)}
+.ccard{transition:border-color .2s,box-shadow .25s,transform .25s}
+.ccard:hover{border-color:#C9C2FF;box-shadow:0 18px 40px -24px rgba(81,70,230,.35);transform:translateY(-2px)}
+.ccard:hover .btn-p{background:#3B31C4;border-color:#3B31C4}
+.sec-w{background:#fff;border-top:1px solid #ECE6EE;border-bottom:1px solid #ECE6EE}
+.grid-a{display:grid;gap:18px}
+/* header */
+.hdr{background:#fff;border-bottom:1px solid #ECE6EE}
+.hdr-in{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1C1B29;margin-right:auto}
+.logo:hover{color:#1C1B29}
+.logo span{font-family:'Outfit',sans-serif;font-weight:600;font-size:24px;letter-spacing:5px}
+.nav{display:flex;flex-wrap:wrap;gap:4px 22px;font-size:15px;font-weight:600}
+.nav a{color:#1C1B29;text-decoration:none;padding:12px 0;transition:color .2s}
+.nav a:hover,.nav a.cur{color:#5146E6}
+/* offer bar */
+.offer{background:#2B2566;color:#fff}
+.offer-in{max-width:1280px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 12px;font-size:14px}
+.code{font:inherit;font-weight:700;font-size:13px;letter-spacing:1px;background:#FFC2AC;color:#1C1B29;border:0;border-radius:999px;padding:6px 12px;min-height:32px;cursor:pointer}
+.code:hover{background:#FFD3C3}
+/* footer */
+.ftr{background:#1C1B29;color:#D9D6CE}
+.ftr-in{max-width:1280px;margin:0 auto;padding:32px 24px;display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center}
+.ftr a{color:#D9D6CE;text-decoration:none;font-size:14px;padding:8px 0}
+.ftr a:hover{color:#fff}
+/* hero */
+.hero-bg{background:radial-gradient(700px 420px at 85% 0%,#E4DEFF 0%,rgba(228,222,255,0) 72%),radial-gradient(620px 380px at 10% 40%,#FDE0D3 0%,rgba(253,224,211,0) 72%)}
+/* course card band */
+.band{position:relative;isolation:isolate;overflow:hidden;height:168px;padding:12px 14px;display:flex;flex-direction:column;justify-content:space-between;color:#1C1B29}
+.band svg.art{position:absolute;right:-18px;bottom:-26px;width:170px;height:170px;opacity:.55;z-index:-1}
+/* FAQ */
+.faq{background:#fff;border:1px solid #ECE6EE;border-radius:20px;transition:border-color .2s,box-shadow .3s}
+.faq:hover{border-color:#C9C2FF}
+.faq.open{border-color:#5146E6}
+.faqb{width:100%;display:flex;align-items:center;gap:14px;cursor:pointer;background:none;border:0;font:inherit;text-align:left;padding:18px 20px;font-size:17px;font-weight:700;color:#1C1B29;min-height:44px}
+.chev{flex:none;width:34px;height:34px;border-radius:50%;background:#F3EEF3;color:#1C1B29;display:grid;place-items:center;transition:transform .3s,background-color .2s,color .2s}
+.open .chev{transform:rotate(180deg);background:#5146E6;color:#fff}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.open .faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden}
+.faq-a p{margin:0;padding:0 20px 20px;font-size:16px;line-height:1.6;color:#45434D}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 18px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start;flex:0 0 min(340px,86%)}
+.arrow{width:46px;height:46px;border-radius:50%;border:1.5px solid #D9D2E4;background:#fff;display:grid;place-items:center;cursor:pointer;color:#1C1B29;transition:border-color .2s}
+.arrow:hover{border-color:#5146E6}
+.bar{height:8px;border-radius:999px;background:#ECE9FF;overflow:hidden}
+.bar>i{display:block;height:100%;background:#5146E6;border-radius:999px;transition:width .6s}
+.inp{width:100%;min-width:0;font:inherit;font-size:15px;border:1.5px solid #ECE6EE;border-radius:14px;padding:13px 16px;background:#FBF8F5;color:#1C1B29;outline:none;transition:border-color .2s,box-shadow .2s}
+.inp:focus{border-color:#5146E6;box-shadow:0 0 0 4px rgba(81,70,230,.12)}
+@media (prefers-reduced-motion:reduce){.s5 *{transition:none !important;animation:none !important}}
+@media (max-width:640px){.hdr-in,.wrap,.wrap-l,.wrap-m,.offer-in,.ftr-in{padding-left:18px;padding-right:18px}.band{height:150px}}
+body{font-family:'Manrope',system-ui,sans-serif}
+h1,h2,h3,.heading,.o,.disp,.h3x{font-family:'Outfit',sans-serif}
+</style>
+</helmet>
+<div class="s5">
+<header class="hdr"><div class="hdr-in"><a href="V5-Home.dc.html#top" class="logo"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24"><path d="M12 1.5C12.9 7.6 16.4 11.1 22.5 12 16.4 12.9 12.9 16.4 12 22.5 11.1 16.4 7.6 12.9 1.5 12 7.6 11.1 11.1 7.6 12 1.5Z" fill="#5146E6" transform="rotate(-12 12 12)"></path></svg><span>SELF</span></a><nav aria-label="Main" class="nav"><a href="V5-Discover.dc.html">Career Discovery</a><a href="V5-Courses.dc.html" class="cur">Courses</a><a href="V5-Learn.dc.html">My Learning</a><a href="V5-Login.dc.html">Log in</a></nav></div></header>
+<main>
+<section class="hero-bg" style="border-bottom:1px solid #ECE6EE">
+<div class="wrap" style="padding-top:56px;padding-bottom:48px">
+<span class="pill"><i></i>Self-paced · First topic free</span>
+<h1 class="h2" style="margin-top:18px;font-size:clamp(34px,4.6vw,56px)">Courses that get you <span style="color:#5146E6">picked.</span></h1>
+<p class="lead" style="max-width:620px">Your knowledge gets you started. Your skills help you stand out. Short, self-paced courses for the moments that actually matter.</p>
+</div>
+</section>
+<section style="background:#fff;border-bottom:1px solid #ECE6EE">
+<div class="wrap" style="padding-top:36px;padding-bottom:64px">
+<div class="out">
+<div role="group" aria-label="Filter courses" style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="5"><button type="button" class="tab" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="{{t.style}}">{{t.label}}</button></sc-for>
+</div>
+<label style="display:flex;align-items:center;gap:10px;min-width:260px;flex:0 1 340px"><span style="position:absolute;left:-9999px">Search courses</span>
+<input class="inp" type="search" placeholder="Search courses" value="{{q}}" onChange="{{onQ}}"></label>
+</div>
+<p class="muted" style="margin:0 0 18px;font-size:14px">{{countLabel}}</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px">
+<sc-for list="{{cards}}" as="c" hint-placeholder-count="8">
+<a class="ccard" href="{{c.href}}" aria-label="{{c.title}}: open course" style="background:#FBF8F5;border:1px solid #ECE6EE;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:#1C1B29;cursor:pointer">
+<div style="{{c.band}}">
+<img src="{{c.img}}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
+<span></span>
+</div>
+<span aria-hidden="true" style="align-self:center;width:56px;height:56px;border-radius:50%;background:#FFFFFF;box-shadow:0 8px 20px rgba(28,27,41,0.18);display:flex;align-items:center;justify-content:center"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="#5146E6"></path></svg></span>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+<span style="font-size:12px;font-weight:700;background:rgba(255,255,255,0.9);padding:4px 8px;border-radius:6px">Free preview</span>
+<span style="font-size:12px;font-weight:700;background:rgba(28,27,41,0.82);color:#FFFFFF;padding:4px 8px;border-radius:6px">{{c.lessonsText}}</span>
+</div>
+</div>
+<div style="padding:20px;display:flex;flex-direction:column;gap:10px;flex:1">
+<h3 style="margin:0;font-size:19px;font-weight: 600;line-height:1.25">{{c.title}}</h3>
+<p style="margin:0;font-size:14px;line-height:1.5;color:#45434D">{{c.desc}}</p>
+<p style="margin:0;font-size:13px;color:#5C5A63">{{c.meta}}</p>
+<div style="margin-top:auto;padding-top:14px;border-top:1px solid #ECE6EE;display:flex;flex-wrap:wrap;align-items:center;gap:8px">
+<span style="margin-right:auto;display:flex;flex-direction:column;line-height:1.15"><span style="font-size:13px;color:#5C5A63;text-decoration:line-through">{{c.mrpText}}</span><span class="o" style="font-weight:500;font-size:22px">{{c.priceText}}</span><span style="font-size:11px;font-weight:700;color:#A3412A">with NEWYEAR26</span></span>
+<span class="btn-p btn-sm" style="padding:12px 16px;color:#FFFFFF">Buy now</span>
+</div>
+</div>
+</a>
+</sc-for>
+</div>
+<sc-if value="{{empty}}" hint-placeholder-val="{{false}}"><p class="muted" style="margin:24px 0 0">No courses match that search. Try another word or clear the filter.</p></sc-if>
+</div>
+</section>
+</main>
+<footer class="ftr">
+<div class="ftr-in">
+<span class="o" style="font-weight:600;font-size:22px;letter-spacing:5px;color:#fff;margin-right:auto">SELF</span>
+<a href="V5-Home.dc.html#faq">FAQ</a>
+<a href="V5-Home.dc.html#privacy">Privacy</a>
+<a href="V5-Home.dc.html#terms">Terms</a>
+<a href="V5-Home.dc.html#refunds">Refunds</a>
+<span style="font-size:13px;color:#A8A59D">© 2026 SELF · India</span>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+const LIST = [
+ { id:'gd1', cat:'gd', title:'Group Discussion Mastery', desc:'Open strong, build on points and summarise like a leader, with real GD recordings broken down.', page:'X' },
+ { id:'gd2', cat:'gd', title:'GD Basics for School Students', desc:'Speak up in class debates and discussions without freezing.', page:'X' },
+ { id:'li1', cat:'li', title:'LinkedIn Profile Builder', desc:'A headline, About and projects section recruiters stop for, with templates and examples.', page:'X' },
+ { id:'li2', cat:'li', title:'LinkedIn for Your First Job Hunt', desc:'Network, message recruiters and post with confidence.', page:'X' },
+ { id:'cm1', cat:'comm', title:'Speak with Confidence', desc:'Clear speaking for class, stage and everyday conversations.', page:'X' },
+ { id:'cm2', cat:'comm', title:'Interview & Presentation Skills', desc:'Answer tough questions and present ideas that land.', page:'X' },
+ { id:'ld1', cat:'lead', title:'Leadership Foundations', desc:'Run a team project, make decisions and give feedback.', page:'X' },
+ { id:'ld2', cat:'lead', title:'Club & Student Council Leadership', desc:'Lead events, committees and peers at school or college.', page:'X' }
+];
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tab: 'all', q: '' }; }
+  renderVals() {
+    const s = this.state;
+    const cats = [ { id:'all', label:'All' }, { id:'gd', label:'Group Discussion', bg:'#FDE2D6' }, { id:'li', label:'LinkedIn', bg:'#E7E4FD' }, { id:'comm', label:'Communication', bg:'#F1EAFB' }, { id:'lead', label:'Leadership', bg:'#FCEBDD' } ];
+    const catOf = {}; cats.forEach((c) => { catOf[c.id] = c; });
+    const LES = {gd1:[14,3.5],gd2:[9,2],li1:[11,2.5],li2:[8,1.5],cm1:[12,3],cm2:[15,4],ld1:[13,3.5],ld2:[10,2.5]};
+    const P = { gd1:1499, gd2:750, li1:999, li2:799, cm1:899, cm2:1299, ld1:1500, ld2:1199 };
+    const IMG = { gd:'assets/c7cfea20ac4bf57b5496a04bac9e424c.svg', li:'assets/cd9f64376de849385a7f82954408adf1.svg', comm:'assets/6139a1636739866436b34ac4adc83866.svg', lead:'assets/43e918efecff1ddb12b46dfdc5b95dde.svg' };
+    const fmt = (n) => '₹' + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const q = (s.q || '').trim().toLowerCase();
+    const shown = LIST.filter((c) => (s.tab === 'all' || c.cat === s.tab) && (!q || (c.title + ' ' + c.desc + ' ' + catOf[c.cat].label).toLowerCase().indexOf(q) > -1));
+    const tabs = cats.map((c) => ({ label: c.label, pressed: c.id === s.tab ? 'true' : 'false', pick: () => this.setState({ tab: c.id }),
+      style: c.id === s.tab ? 'background:#5146E6;color:#FFFFFF;border-color:#5146E6' : '' }));
+    const cards = shown.map((c) => ({ title:c.title, desc:c.desc, href:'V5-Course-' + c.id + '.dc.html', catLabel:catOf[c.cat].label, img:IMG[c.cat],
+      meta:'Video course · Watch anytime · Certificate', lessonsText: LES[c.id][0] + ' lessons · ' + LES[c.id][1] + ' hrs',
+      mrpText: fmt(P[c.id]), priceText: fmt(Math.round(P[c.id] * 0.75)),
+      band: 'background:' + catOf[c.cat].bg + ';position:relative;isolation:isolate;overflow:hidden;height:168px;box-sizing:border-box;padding:12px 14px;display:flex;flex-direction:column;justify-content:space-between;color:#1C1B29;' }));
+    return { tabs, cards, q: s.q, onQ: (e) => this.setState({ q: e.target.value }), empty: shown.length === 0, countLabel: shown.length + (shown.length === 1 ? ' course' : ' courses') };
+  }
+}
+</script>
+<script src="demo-shell.js" defer></script>
+</body>
+</html>

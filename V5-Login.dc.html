@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SELF — Log in</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FBF8F5}
+a{color:#5146E6}a:hover{color:#3B31C4}
+.s5{font-family:'Manrope',system-ui,sans-serif;color:#1C1B29;background:#FBF8F5;width:100%;min-width:0}
+.s5 *{box-sizing:border-box}
+.s5 :focus-visible{outline:2px solid #5146E6;outline-offset:3px;border-radius:10px}
+.s5 button{font-family:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.wrap-l{max-width:1180px;margin:0 auto;padding:0 24px}
+.wrap-m{max-width:1120px;margin:0 auto;padding:0 24px}
+.out{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:18px 24px;margin-bottom:28px}
+.eyebrow{margin:0;font-size:13px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#5146E6}
+.h2{margin:8px 0 0;font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(30px,3.8vw,46px);letter-spacing:-1px;line-height:1.1}
+.h2c{margin:0 0 28px;font-family:'Outfit',sans-serif;font-weight:400;font-size:clamp(30px,3.6vw,42px);letter-spacing:-1px;text-align:center}
+.lead{margin:10px 0 0;font-size:16px;line-height:1.6;color:#45434D}
+.muted{color:#5C5A63}
+.o{font-family:'Outfit',sans-serif}
+/* buttons */
+.btn-p,.btn-o{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:700;font-size:16px;border-radius:999px;text-decoration:none;cursor:pointer;min-height:48px;transition:background-color .2s,border-color .2s,color .2s,box-shadow .2s,transform .2s}
+.btn-p{background:#5146E6;color:#fff;border:1.5px solid #5146E6;padding:14px 22px}
+.btn-p:hover{background:#3B31C4;border-color:#3B31C4;color:#fff}
+.btn-o{background:#fff;color:#1C1B29;border:1.5px solid #D9D2E4;padding:13px 21px}
+.btn-o:hover{border-color:#5146E6;color:#1C1B29}
+.btn-sm{font-size:14px;padding:12px 16px;min-height:44px}
+.btn-p[disabled],.btn-o[disabled]{opacity:.45;cursor:not-allowed}
+.link-b{font:inherit;font-size:14px;font-weight:600;color:#5146E6;background:none;border:0;padding:10px 0;cursor:pointer;min-height:44px}
+.link-b:hover{color:#3B31C4}
+/* chips / tabs */
+.tab{font:inherit;font-weight:600;font-size:14px;padding:10px 16px;border-radius:999px;min-height:44px;cursor:pointer;background:#fff;color:#1C1B29;border:1.5px solid #D9D2E4;transition:background-color .2s,border-color .2s,color .2s}
+.tab:hover{border-color:#5146E6}
+.tab.on{background:#5146E6;color:#fff;border-color:#5146E6}
+.qr{font:inherit;font-size:15px;font-weight:600;border-radius:999px;padding:11px 16px;min-height:44px;cursor:pointer;color:#4338CA;background:#fff;border:1.5px solid #C9C2FF;transition:background-color .2s,border-color .2s}
+.qr:hover{border-color:#5146E6;background:#F6F4FF}
+.qr.sol{color:#fff;background:#5146E6;border-color:#5146E6}
+.qr.sol:hover{background:#3B31C4;border-color:#3B31C4}
+.pill{display:inline-flex;align-items:center;gap:8px;background:#ECE9FF;color:#4338CA;font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px}
+.pill i{width:7px;height:7px;border-radius:50%;background:#5146E6;display:inline-block}
+.tag{font-size:12px;font-weight:700;padding:5px 9px;border-radius:8px;background:#ECE9FF;color:#4338CA;display:inline-block}
+/* cards */
+.card{background:#FBF8F5;border:1px solid #ECE6EE;border-radius:20px;transition:border-color .2s,box-shadow .25s,transform .25s}
+.card.w{background:#fff}
+.card.r22{border-radius:22px}
+.lift:hover{border-color:#C9C2FF;box-shadow:0 18px 40px -24px rgba(81,70,230,.35);transform:translateY(-2px)}
+.sec-w{background:#fff;border-top:1px solid #ECE6EE;border-bottom:1px solid #ECE6EE}
+.grid-a{display:grid;gap:18px}
+/* header */
+.hdr{background:#fff;border-bottom:1px solid #ECE6EE}
+.hdr-in{max-width:1280px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#1C1B29;margin-right:auto}
+.logo:hover{color:#1C1B29}
+.logo span{font-family:'Outfit',sans-serif;font-weight:600;font-size:24px;letter-spacing:5px}
+.nav{display:flex;flex-wrap:wrap;gap:4px 22px;font-size:15px;font-weight:600}
+.nav a{color:#1C1B29;text-decoration:none;padding:12px 0;transition:color .2s}
+.nav a:hover,.nav a.cur{color:#5146E6}
+/* offer bar */
+.offer{background:#2B2566;color:#fff}
+.offer-in{max-width:1280px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 12px;font-size:14px}
+.code{font:inherit;font-weight:700;font-size:13px;letter-spacing:1px;background:#FFC2AC;color:#1C1B29;border:0;border-radius:999px;padding:6px 12px;min-height:32px;cursor:pointer}
+.code:hover{background:#FFD3C3}
+/* footer */
+.ftr{background:#1C1B29;color:#D9D6CE}
+.ftr-in{max-width:1280px;margin:0 auto;padding:32px 24px;display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center}
+.ftr a{color:#D9D6CE;text-decoration:none;font-size:14px;padding:8px 0}
+.ftr a:hover{color:#fff}
+/* hero */
+.hero-bg{background:radial-gradient(700px 420px at 85% 0%,#E4DEFF 0%,rgba(228,222,255,0) 72%),radial-gradient(620px 380px at 10% 40%,#FDE0D3 0%,rgba(253,224,211,0) 72%)}
+/* course card band */
+.band{position:relative;isolation:isolate;overflow:hidden;height:168px;padding:12px 14px;display:flex;flex-direction:column;justify-content:space-between;color:#1C1B29}
+.band svg.art{position:absolute;right:-18px;bottom:-26px;width:170px;height:170px;opacity:.55;z-index:-1}
+/* FAQ */
+.faq{background:#fff;border:1px solid #ECE6EE;border-radius:20px;transition:border-color .2s,box-shadow .3s}
+.faq:hover{border-color:#C9C2FF}
+.faq.open{border-color:#5146E6}
+.faqb{width:100%;display:flex;align-items:center;gap:14px;cursor:pointer;background:none;border:0;font:inherit;text-align:left;padding:18px 20px;font-size:17px;font-weight:700;color:#1C1B29;min-height:44px}
+.chev{flex:none;width:34px;height:34px;border-radius:50%;background:#F3EEF3;color:#1C1B29;display:grid;place-items:center;transition:transform .3s,background-color .2s,color .2s}
+.open .chev{transform:rotate(180deg);background:#5146E6;color:#fff}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.open .faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden}
+.faq-a p{margin:0;padding:0 20px 20px;font-size:16px;line-height:1.6;color:#45434D}
+.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 18px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start;flex:0 0 min(340px,86%)}
+.arrow{width:46px;height:46px;border-radius:50%;border:1.5px solid #D9D2E4;background:#fff;display:grid;place-items:center;cursor:pointer;color:#1C1B29;transition:border-color .2s}
+.arrow:hover{border-color:#5146E6}
+.bar{height:8px;border-radius:999px;background:#ECE9FF;overflow:hidden}
+.bar>i{display:block;height:100%;background:#5146E6;border-radius:999px;transition:width .6s}
+.inp{width:100%;min-width:0;font:inherit;font-size:15px;border:1.5px solid #ECE6EE;border-radius:14px;padding:13px 16px;background:#FBF8F5;color:#1C1B29;outline:none;transition:border-color .2s,box-shadow .2s}
+.inp:focus{border-color:#5146E6;box-shadow:0 0 0 4px rgba(81,70,230,.12)}
+@media (prefers-reduced-motion:reduce){.s5 *{transition:none !important;animation:none !important}}
+@media (max-width:640px){.hdr-in,.wrap,.wrap-l,.wrap-m,.offer-in,.ftr-in{padding-left:18px;padding-right:18px}.band{height:150px}}
+
+.lg{min-height:calc(100vh - 140px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+.lg-l{position:relative;overflow:hidden;padding:72px clamp(24px,5vw,72px);display:flex;flex-direction:column;justify-content:center;gap:28px;background:radial-gradient(700px 480px at 85% 0%,#E4DEFF 0%,rgba(228,222,255,0) 72%),radial-gradient(620px 420px at 10% 90%,#FDE0D3 0%,rgba(253,224,211,0) 72%),#FBF8F5}
+.lg-r{display:flex;align-items:center;justify-content:center;padding:48px clamp(18px,4vw,64px);background:#fff;border-left:1px solid #ECE6EE}
+.lg-card{width:100%;max-width:440px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;background:#F3EEF3;border-radius:999px;margin:22px 0 22px}
+.seg button{font:inherit;font-weight:700;font-size:14px;border:0;border-radius:999px;padding:11px 12px;min-height:44px;cursor:pointer;background:transparent;color:#5C5A63;transition:background-color .2s,color .2s,box-shadow .2s}
+.seg button.on{background:#fff;color:#1C1B29;box-shadow:0 4px 14px rgba(28,27,41,.10)}
+.lab{display:block;font-size:14px;font-weight:700;margin:0 0 6px}
+.fld{margin-bottom:16px}
+.err{margin:0 0 14px;min-height:20px;font-size:14px;font-weight:600;color:#C2543A}
+.pre{display:flex;align-items:center;border:1.5px solid #ECE6EE;border-radius:14px;background:#FBF8F5;transition:border-color .2s,box-shadow .2s}
+.pre:focus-within{border-color:#5146E6;box-shadow:0 0 0 4px rgba(81,70,230,.12)}
+.pre span{padding:0 4px 0 16px;font-weight:700;color:#45434D}
+.pre input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:15px;padding:13px 16px 13px 8px;outline:none;color:#1C1B29}
+.feat{display:flex;gap:14px;align-items:flex-start}
+.feat i{flex:none;width:40px;height:40px;border-radius:12px;background:#fff;border:1px solid #ECE6EE;display:grid;place-items:center;box-shadow:0 8px 20px -12px rgba(81,70,230,.5)}
+.sw{animation:sw .5s cubic-bezier(.16,1,.3,1) both}
+@keyframes sw{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (max-width:900px){.lg{grid-template-columns:1fr}.lg-l{padding:40px 24px}.lg-r{border-left:0}.lg-l .feats{display:none !important}}
+
+.lnav{margin:0 auto 0 12px}
+.lacts{display:flex;align-items:center;gap:18px}
+.lin{font-size:15px;font-weight:600;color:#1C1B29;text-decoration:none;padding:12px 0}.lin:hover,.lin.cur{color:#5146E6}
+.lgm{min-height:calc(100vh - 330px);display:flex;align-items:center;justify-content:center;padding:clamp(36px,7vw,84px) 18px;background:radial-gradient(700px 420px at 85% 0%,#E4DEFF 0%,rgba(228,222,255,0) 72%),radial-gradient(620px 380px at 10% 90%,#FDE0D3 0%,rgba(253,224,211,0) 72%),#FBF8F5}
+.lgc{width:100%;max-width:460px;background:#fff;border:1px solid #ECE6EE;border-radius:28px;padding:clamp(28px,5vw,44px);box-shadow:0 40px 90px -50px rgba(81,70,230,.45)}
+.lgi{background:#fff}
+.btn-p[disabled]{background:#C9C2FF;border-color:#C9C2FF;opacity:1;color:#fff}
+.lft{background:#fff;border-top:1px solid #ECE6EE}
+.lft-in{max-width:1280px;margin:0 auto;padding:40px 24px 24px;display:flex;flex-wrap:wrap;gap:28px 64px}
+.lft-b{margin-right:auto}
+.lft-c{display:flex;flex-direction:column;gap:2px;min-width:140px}
+.lft-c a{color:#45434D;text-decoration:none;font-size:14px;padding:6px 0}.lft-c a:hover{color:#5146E6}
+.lft-s{max-width:1280px;margin:0 auto;padding:0 24px 28px;font-size:13px;color:#5C5A63}
+@media (max-width:900px){.lnav{display:none}.lacts{margin-left:auto}}
+@media (max-width:480px){.lacts .lin{display:none}}
+body{font-family:'Manrope',system-ui,sans-serif}
+h1,h2,h3,.heading,.o,.disp,.h3x{font-family:'Outfit',sans-serif}
+</style>
+</helmet>
+<div class="s5">
+<header class="hdr"><div class="hdr-in"><a href="V5-Home.dc.html#top" class="logo"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24"><path d="M12 1.5C12.9 7.6 16.4 11.1 22.5 12 16.4 12.9 12.9 16.4 12 22.5 11.1 16.4 7.6 12.9 1.5 12 7.6 11.1 11.1 7.6 12 1.5Z" fill="#5146E6" transform="rotate(-12 12 12)"></path></svg><span>SELF</span></a><nav aria-label="Main" class="nav"><a href="V5-Discover.dc.html">Career Discovery</a><a href="V5-Courses.dc.html">Courses</a><a href="V5-Learn.dc.html">My Learning</a><a href="V5-Login.dc.html" class="cur" aria-current="page">Log in</a></nav></div></header>
+<main class="lgm">
+<div class="lgc sw">
+<sc-if value="{{signedIn}}" hint-placeholder-val="{{false}}">
+<div style="text-align:center">
+<span style="display:inline-grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#EAF7F0"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#167A4C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"></path></svg></span>
+<h1 id="lg-h" class="o" style="margin:18px 0 6px;font-weight:400;font-size:30px;letter-spacing:-1px">You are logged in</h1>
+<p class="muted" style="margin:0 0 24px;font-size:15px">{{userLabel}}</p>
+<a class="btn-p" href="V5-Learn.dc.html" style="width:100%;text-decoration:none;color:#fff">Go to My Learning</a>
+<button type="button" class="btn-o" onClick="{{logout}}" style="width:100%;margin-top:10px">Log out</button>
+</div>
+</sc-if>
+<sc-if value="{{signedOut}}" hint-placeholder-val="{{true}}">
+<div style="text-align:center">
+<span aria-hidden="true" style="display:inline-grid;place-items:center;width:60px;height:60px;border-radius:18px;background:#ECE9FF"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5146E6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"></rect><path d="M11 18.5h2"></path></svg></span>
+<h1 id="lg-h" class="o" style="margin:20px 0 8px;font-weight:400;font-size:clamp(28px,3.2vw,34px);letter-spacing:-1px;line-height:1.15">{{title}}</h1>
+<p class="muted" style="margin:0 0 26px;font-size:15px;line-height:1.55">{{lead}}</p>
+</div>
+<sc-if value="{{mobEnter}}" hint-placeholder-val="{{true}}">
+<div class="fld"><label class="lab" for="mob">Mobile number</label>
+<input id="mob" class="inp lgi" type="tel" inputmode="tel" autocomplete="tel" maxlength="16" placeholder="+91 98765 43210" value="{{mob}}" onInput="{{setMob}}" onKeyDown="{{kMob}}"></div>
+<p class="err" role="alert">{{err}}</p>
+<button type="button" class="btn-p" style="width:100%" disabled="{{sendOff}}" onClick="{{sendCode}}">Send code</button>
+</sc-if>
+<sc-if value="{{mobOtp}}" hint-placeholder-val="{{false}}">
+<div class="fld"><label class="lab" for="otp">Enter the 6-digit code sent to {{masked}}</label>
+<input id="otp" class="inp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="000000" onChange="{{setOtp}}" onKeyDown="{{kOtp}}" style="letter-spacing:.4em;text-align:center;font-size:22px"></div>
+<p class="err" role="alert">{{err}}</p>
+<button type="button" class="btn-p" style="width:100%" onClick="{{verify}}">Verify and log in</button>
+<button type="button" class="link-b" style="width:100%;margin-top:6px" onClick="{{changeNum}}">Use a different number</button>
+</sc-if>
+<p style="margin:22px 0 0;display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:#5C5A63"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5146E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg>Your number is only used to log you in.</p>
+</sc-if>
+</div>
+</main>
+<footer class="lft"><div class="lft-in">
+<div class="lft-b"><a href="V5-Home.dc.html#top" class="logo" style="margin:0"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 32 32"><defs><linearGradient id="lgg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C6FF0"/><stop offset="1" stop-color="#5146E6"/></linearGradient></defs><rect width="32" height="32" rx="9" fill="url(#lgg)"/><text x="16" y="22.5" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="600" font-size="19" fill="#fff">S</text></svg><span>SELF</span></a><p class="muted" style="margin:12px 0 0;font-size:14px;line-height:1.55;max-width:300px">Discover who you are, then build the skills to get there.</p></div>
+<div class="lft-c"><b class="o" style="font-size:15px;font-weight:500">Platform</b><a href="V5-Discover.dc.html">Career Discovery</a><a href="V5-Learn.dc.html">My Learning</a><a href="V5-Login.dc.html">Log in</a></div>
+<div class="lft-c"><b class="o" style="font-size:15px;font-weight:500">Explore</b><a href="V5-Courses.dc.html">Level 1 Learning</a><a href="V5-Method.dc.html">How we score</a><a href="V5-Home.dc.html#faq">FAQ</a></div>
+</div>
+<div class="lft-s">© 2026 SELF · India</div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    let u = ''; try { u = JSON.parse(localStorage.getItem('self_v5_user') || '""') || ''; } catch (e) {}
+    this.state = { user: u, mode: 'mob', step: 'enter', mob: '', otp: '', email: '', pw: '', err: '' };
+  }
+  save(label) { try { localStorage.setItem('self_v5_user', JSON.stringify(label)); } catch (e) {} this.setState({ user: label, err: '' }); }
+  renderVals() {
+    const s = this.state;
+    const key = (fn) => (e) => { if (e.key === 'Enter') fn(); };
+    const sendCode = () => { const m = (this.state.mob || '').replace(/\D/g, '').replace(/^91(?=\d{10}$)/, ''); if (!/^[6-9]\d{9}$/.test(m)) { this.setState({ err: 'Enter a valid 10-digit mobile number.' }); return; } this.setState({ step: 'otp', mob: m, err: '' }); };
+    const verify = () => { if (!/^\d{6}$/.test(this.state.otp || '')) { this.setState({ err: 'Enter the 6-digit code.' }); return; } this.save('+91 ' + this.state.mob); };
+    const loginEm = () => { const em = (this.state.email || '').trim(); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)) { this.setState({ err: 'Enter a valid email address.' }); return; } if ((this.state.pw || '').length < 6) { this.setState({ err: 'Password must be at least 6 characters.' }); return; } this.save(em); };
+    const mob = s.mode === 'mob';
+    return {
+      signedIn: !!s.user, signedOut: !s.user, userLabel: s.user,
+      logout: () => { try { localStorage.removeItem('self_v5_user'); } catch (e) {} this.setState({ user: '', step: 'enter', otp: '', err: '' }); },
+      title: 'Log in with your phone', lead: 'We will text you a 6-digit code. No password needed.', sendOff: (this.state.mob || '').replace(/\D/g, '').replace(/^91(?=\d{10}$)/, '').length < 10,
+      mobOn: mob, emOn: !mob, mobCls: mob ? 'on' : '', emCls: mob ? '' : 'on',
+      toMob: () => this.setState({ mode: 'mob', err: '' }), toEm: () => this.setState({ mode: 'em', err: '' }),
+      mobEnter: s.step === 'enter', mobOtp: s.step === 'otp',
+      mob: s.mob, setMob: (e) => this.setState({ mob: e.target.value, err: '' }), kMob: key(sendCode), sendCode,
+      masked: '+91 ' + (s.mob || '').slice(0, 2) + '••• ••' + (s.mob || '').slice(-3),
+      setOtp: (e) => this.setState({ otp: e.target.value }), kOtp: key(verify), verify,
+      changeNum: () => this.setState({ step: 'enter', otp: '', err: '' }),
+      email: s.email, setEmail: (e) => this.setState({ email: e.target.value }), setPw: (e) => this.setState({ pw: e.target.value }), kEm: key(loginEm), loginEm,
+      err: s.err
+    };
+  }
+}
+</script>
+<script src="demo-shell.js" defer></script>
+</body>
+</html>
